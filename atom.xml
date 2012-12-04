@@ -4,7 +4,7 @@
   <title><![CDATA[Montree Blog]]></title>
   <link href="http://gailo22.github.com/atom.xml" rel="self"/>
   <link href="http://gailo22.github.com/"/>
-  <updated>2012-12-04T09:40:11+00:00</updated>
+  <updated>2012-12-04T09:57:57+00:00</updated>
   <id>http://gailo22.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,5 +12,14 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hello]]></title>
+    <link href="http://gailo22.github.com/blog/2012/12/04/hello/"/>
+    <updated>2012-12-04T09:57:00+00:00</updated>
+    <id>http://gailo22.github.com/blog/2012/12/04/hello</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
 </feed>
