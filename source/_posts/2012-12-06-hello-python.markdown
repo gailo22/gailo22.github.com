@@ -7,7 +7,7 @@ author: gailo22
 categories: 
 ---
 
-This is my first program with python using gvim is very cool.
+This is my first program with python using gvim is a editor.
 
 {% codeblock lang:python %}
 def square(x):
