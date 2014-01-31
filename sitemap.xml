@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+<<<<<<< HEAD
         <loc>http://gailo22.github.io/blog/2012/12/06/hello-python/</loc>
         <lastmod>2014-01-31T14:07:12+07:00</lastmod>
     </url>
@@ -19,5 +20,21 @@
     <url>
         <loc>http://gailo22.github.io/robots.txt</loc>
         <lastmod>2014-01-31T14:07:13+07:00</lastmod>
+=======
+        <loc>http://gailo22.github.com/blog/2012/12/04/hello/</loc>
+        <lastmod>2012-12-04T09:57:12+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://gailo22.github.com/blog/2012/12/06/hello-python/</loc>
+        <lastmod>2012-12-10T05:48:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://gailo22.github.com/</loc>
+        <lastmod>2012-12-10T05:48:48+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://gailo22.github.com/blog/archives/</loc>
+        <lastmod>2012-12-10T05:48:48+00:00</lastmod>
+>>>>>>> d81d5684945a1c284cbcf8f9f74a8ce5a00eb345
     </url>
 </urlset>
