@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: unit | Montree Bungnasang]]></title>
+  <link href="http://gailo22.github.io/blog/categories/unit/atom.xml" rel="self"/>
+  <link href="http://gailo22.github.io/"/>
+  <updated>2014-03-03T15:55:01+07:00</updated>
+  <id>http://gailo22.github.io/</id>
+  <author>
+    <name><![CDATA[gailo22]]></name>
+    <email><![CDATA[gailo22@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Create Unit Test with Mockito]]></title>
+    <link href="http://gailo22.github.io/blog/2014/03/03/create-unit-test-with-mockito/"/>
+    <updated>2014-03-03T15:21:30+07:00</updated>
+    <id>http://gailo22.github.io/blog/2014/03/03/create-unit-test-with-mockito</id>
+    <content type="html"><![CDATA[<p>Assume you want to create a unit test for UserService class, getUserByUserName(String username) method.</p>
+
+<p>```java
+@Service(&ldquo;userService&rdquo;)
+public class UserServiceImpl implements UserService {</p>
+
+<pre><code>@Autowired
+private UserDao userDao;
+
+public User getUserByUserName(String username) {
+    ...
+    userDao.getUserByName(username);
+    ...
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>Create new class name UserServiceImplTest</h2>
+
+<p>```java
+public class UserServiceImplTest {</p>
+
+<pre><code>...
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>Inject class you want to test</h2>
+
+<p>```java
+@InjectMocks
+private UserServiceImpl userService;</p>
+
+<p>```</p>
+
+<h2>Mock related objects</h2>
+
+<p><code>java
+@Mock
+private UserDao userDaoMock;
+</code></p>
+
+<h2>Setup annotation support</h2>
+
+<p>```java
+@Before
+public void setup() {</p>
+
+<pre><code>initMocks(this);
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>Create test method</h2>
+
+<p>```java
+@Test
+public void shoudXXX() {</p>
+
+<p>}
+```</p>
+
+<h2>Verify expectation</h2>
+
+<p><code>java
+verify(userService).getUserById("admin");
+assertThat(true, equalTo(true));
+</code></p>
+
+<h2>Static import required classes</h2>
+
+<p>```java
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;</p>
+
+<p>import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.initMocks;
+```</p>
+
+<h2>Verify expectation</h2>
+
+<p><code>java
+verify(userService).getUserById("admin");
+assertThat(true, equalTo(true));
+</code></p>
+
+<h1>Method Template</h1>
+
+<p>```java
+@Test
+public void should<Expecting>When<Criteria>On<MehtodName> {</p>
+
+<pre><code>// Given
+Declare your mock object and expectation.
+
+// When
+Invoke method you want to test.
+
+// Then
+Verify method invocation.
+Check return value from the method.
+</code></pre>
+
+<p>}
+```</p>
+
+<h1>Example</h1>
+
+<p>```java
+@Test
+public void shouldReturnUserWhenUserNameIsNotNullOnGetUserByUserName {</p>
+
+<pre><code>// Given
+User userMock = mock(User.class);
+when(userDaoMock.getByUserName("admin")).thenReturn(userMock);
+
+// When
+User returnUser = userService.getUserByUserName("admin");
+
+// Then
+assertThat(returnUser, equalTo(userMock));
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

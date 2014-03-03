@@ -4,7 +4,7 @@
   <title><![CDATA[Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-02-28T12:16:51+07:00</updated>
+  <updated>2014-03-03T15:55:01+07:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -12,6 +12,202 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Create Unit Test with Mockito]]></title>
+    <link href="http://gailo22.github.io/blog/2014/03/03/create-unit-test-with-mockito/"/>
+    <updated>2014-03-03T15:21:30+07:00</updated>
+    <id>http://gailo22.github.io/blog/2014/03/03/create-unit-test-with-mockito</id>
+    <content type="html"><![CDATA[<p>Assume you want to create a unit test for UserService class, getUserByUserName(String username) method.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Service</span><span class="o">(</span><span class="s">&quot;userService&quot;</span><span class="o">)</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserServiceImpl</span> <span class="kd">implements</span> <span class="n">UserService</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nd">@Autowired</span>
+</span><span class='line'>    <span class="kd">private</span> <span class="n">UserDao</span> <span class="n">userDao</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="n">User</span> <span class="nf">getUserByUserName</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="o">...</span>
+</span><span class='line'>        <span class="n">userDao</span><span class="o">.</span><span class="na">getUserByName</span><span class="o">(</span><span class="n">username</span><span class="o">);</span>
+</span><span class='line'>        <span class="o">...</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Create new class name UserServiceImplTest</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserServiceImplTest</span> <span class="o">{</span>
+</span><span class='line'>    <span class="o">...</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Inject class you want to test</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@InjectMocks</span>
+</span><span class='line'><span class="kd">private</span> <span class="n">UserServiceImpl</span> <span class="n">userService</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Mock related objects</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Mock</span>
+</span><span class='line'><span class="kd">private</span> <span class="n">UserDao</span> <span class="n">userDaoMock</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Setup annotation support</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Before</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">initMocks</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Create test method</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Test</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">shoudXXX</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Verify expectation</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">verify</span><span class="o">(</span><span class="n">userService</span><span class="o">).</span><span class="na">getUserById</span><span class="o">(</span><span class="s">&quot;admin&quot;</span><span class="o">);</span>
+</span><span class='line'><span class="n">assertThat</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="n">equalTo</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Static import required classes</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">org.junit.Before</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">org.mockito.InjectMocks</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">org.mockito.Mock</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">hamcrest</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">IsEqual</span><span class="o">.</span><span class="na">equalTo</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">Assert</span><span class="o">.</span><span class="na">assertThat</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">mockito</span><span class="o">.</span><span class="na">Mockito</span><span class="o">.</span><span class="na">mock</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">mockito</span><span class="o">.</span><span class="na">Mockito</span><span class="o">.</span><span class="na">verify</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">mockito</span><span class="o">.</span><span class="na">Mockito</span><span class="o">.</span><span class="na">when</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">mockito</span><span class="o">.</span><span class="na">MockitoAnnotations</span><span class="o">.</span><span class="na">initMocks</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Verify expectation</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">verify</span><span class="o">(</span><span class="n">userService</span><span class="o">).</span><span class="na">getUserById</span><span class="o">(</span><span class="s">&quot;admin&quot;</span><span class="o">);</span>
+</span><span class='line'><span class="n">assertThat</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="n">equalTo</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>Method Template</h1>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Test</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="n">should</span><span class="o">&lt;</span><span class="n">Expecting</span><span class="o">&gt;</span><span class="n">When</span><span class="o">&lt;</span><span class="n">Criteria</span><span class="o">&gt;</span><span class="n">On</span><span class="o">&lt;</span><span class="n">MehtodName</span><span class="o">&gt;</span> <span class="o">{</span>
+</span><span class='line'>    <span class="c1">// Given</span>
+</span><span class='line'>    <span class="n">Declare</span> <span class="n">your</span> <span class="n">mock</span> <span class="n">object</span> <span class="n">and</span> <span class="n">expectation</span><span class="o">.</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// When</span>
+</span><span class='line'>    <span class="n">Invoke</span> <span class="n">method</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">test</span><span class="o">.</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Then</span>
+</span><span class='line'>    <span class="n">Verify</span> <span class="n">method</span> <span class="n">invocation</span><span class="o">.</span>
+</span><span class='line'>    <span class="n">Check</span> <span class="k">return</span> <span class="n">value</span> <span class="n">from</span> <span class="n">the</span> <span class="n">method</span><span class="o">.</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>Example</h1>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Test</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="n">shouldReturnUserWhenUserNameIsNotNullOnGetUserByUserName</span> <span class="o">{</span>
+</span><span class='line'>    <span class="c1">// Given</span>
+</span><span class='line'>    <span class="n">User</span> <span class="n">userMock</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">when</span><span class="o">(</span><span class="n">userDaoMock</span><span class="o">.</span><span class="na">getByUserName</span><span class="o">(</span><span class="s">&quot;admin&quot;</span><span class="o">)).</span><span class="na">thenReturn</span><span class="o">(</span><span class="n">userMock</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// When</span>
+</span><span class='line'>    <span class="n">User</span> <span class="n">returnUser</span> <span class="o">=</span> <span class="n">userService</span><span class="o">.</span><span class="na">getUserByUserName</span><span class="o">(</span><span class="s">&quot;admin&quot;</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Then</span>
+</span><span class='line'>    <span class="n">assertThat</span><span class="o">(</span><span class="n">returnUser</span><span class="o">,</span> <span class="n">equalTo</span><span class="o">(</span><span class="n">userMock</span><span class="o">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Pass function as argument in Java]]></title>
