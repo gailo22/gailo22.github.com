@@ -94,14 +94,6 @@ import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 ```
 
-Verify expectation
-------------
-
-```java
-verify(userService).getUserById("admin");
-assertThat(true, equalTo(true));
-```
-
 Method Template
 ============
 
