@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mockito | Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/blog/categories/mockito/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-03-03T15:55:01+07:00</updated>
+  <updated>2014-03-05T11:46:09+07:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -106,13 +106,6 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 ```</p>
-
-<h2>Verify expectation</h2>
-
-<p><code>java
-verify(userService).getUserById("admin");
-assertThat(true, equalTo(true));
-</code></p>
 
 <h1>Method Template</h1>
 
