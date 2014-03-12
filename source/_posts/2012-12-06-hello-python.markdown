@@ -4,7 +4,7 @@ title: "Hello Python"
 date: 2012-12-06 09:01
 comments: true
 author: gailo22
-categories: 
+categories: python closure lambda
 ---
 
 This is my first program with python using gvim is a editor.

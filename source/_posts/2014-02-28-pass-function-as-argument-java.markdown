@@ -3,7 +3,7 @@ layout: post
 title: "Pass function as argument in Java"
 date: 2014-02-28 11:57:17 +0700
 comments: true
-categories: 
+categories: java function passing
 ---
 
 This is an example of passing function as argument in java. It kind of ugly but it can solve my duplicate code problem as below:
