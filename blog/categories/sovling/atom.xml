@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sovling | Montree Bungnasang]]></title>
+  <link href="http://gailo22.github.io/blog/categories/sovling/atom.xml" rel="self"/>
+  <link href="http://gailo22.github.io/"/>
+  <updated>2014-03-12T11:17:25+07:00</updated>
+  <id>http://gailo22.github.io/</id>
+  <author>
+    <name><![CDATA[gailo22]]></name>
+    <email><![CDATA[gailo22@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Polya's Problem Solving Techniques]]></title>
+    <link href="http://gailo22.github.io/blog/2014/03/12/polyas-problem-solving-techniques/"/>
+    <updated>2014-03-12T11:07:26+07:00</updated>
+    <id>http://gailo22.github.io/blog/2014/03/12/polyas-problem-solving-techniques</id>
+    <content type="html"><![CDATA[<p>In 1945 George Polya published the book How To Solve It which quickly became
+his most prized publication. It sold over one million copies and has been translated
+into 17 languages. In this book he identifies four basic principles of problem solving.</p>
+
+<h2>Polya&rsquo;s First Principle: Understand the problem</h2>
+
+<p>This seems so obvious that it is often not even mentioned, yet studens are often
+stymied in their efforts to solve problems simply because they don&rsquo;t understand it
+fully, or even in part. Polya taught teachers to ask students questions such as:</p>
+
+<ul>
+<li>Do you understand all the words used in stating the problem?</li>
+<li>What are you asked to find or show?</li>
+<li>Can you restate the problem in your own words?</li>
+<li>Can you think of a picture or diagram that might help you understand the
+problem?</li>
+<li>Is there enough information to enable you to find a solution?</li>
+</ul>
+
+
+<h2>Polya&rsquo;s Second Principle: Devise a plan</h2>
+
+<p>Polya mentions that there are many reasonable ways to solve problems. The skill
+at choosing an appropriate strategy is best learned by solving many problems. You
+will find choosing a strategy increasingly easy. A partial list of strategies is included:</p>
+
+<ul>
+<li>Guess and check</li>
+<li>Look for a pattern</li>
+<li>Make an orderly list</li>
+<li>Draw a picture</li>
+<li>Eliminate possibilities</li>
+<li>Solve a simpler problem</li>
+<li>Use symmetry</li>
+<li>Use a model</li>
+<li>Consider special cases</li>
+<li>Work backwards</li>
+<li>Use direct reasoning</li>
+<li>Use a formula</li>
+<li>Solve an equation</li>
+<li>Be ingenious</li>
+</ul>
+
+
+<h2>Polya&rsquo;s Third Principle: Carry out the plan</h2>
+
+<p>This step is usually easier than devising the plan. In general, all you need is
+care and patience, given that you have the necessary skills. Persist with the plan that
+you have chosen. If it continues not to work discard it and choose another. Don&rsquo;t be
+misled, this is how mathematics is done, even by professionals.</p>
+
+<h2>Polya&rsquo;s Fourth Principle: Look back</h2>
+
+<p>Polya mentions that much can be gained by taking the time to re
+ect and look back at what you have done, what worked, and what didn&rsquo;t. Doing this will enable
+you to predict what strategy to use to solve future problems.</p>
+
+<p>So starting on the next page, here is a summary, in the master&rsquo;s own words, on
+strategies for attacking problems in mathematics class. This is taken from the book,
+<em>How To Solve It, by George Polya, 2nd ed., Princeton University Press, 1957, ISBN
+0-691-08097-6.</em></p>
+
+<h2>1. UNDERSTAND THE PROBLEM</h2>
+
+<ul>
+<li><strong>First.</strong> You have to understand the problem.</li>
+<li>What is the unknown? What are the data? What is the condition?</li>
+<li>Is it possible to satisfy the condition? Is the condition sufficient to determine the unknown? Or is it insuffcient? Or redundant? Or contradictory?</li>
+<li>Draw a figure. Introduce suitable notation.</li>
+<li>Separate the various parts of the condition. Can you write them down?</li>
+</ul>
+
+
+<h2>2. DEVISING A PLAN</h2>
+
+<ul>
+<li><strong>Second.</strong> Find the connection between the data and the unknown. You
+may be obliged to consider auxiliary problems if an immediate connection
+cannot be found. You should obtain eventually a plan of the solution.</li>
+<li>Have you seen it before? Or have you seen the same problem in a slightly
+different form?</li>
+<li>Do you know a related problem? Do you know a theorem that could be
+useful?</li>
+<li>Look at the unknown! Try to think of a familiar problem having the same
+or a similar unknown.</li>
+<li>Here is a problem related to yours and solved before. Could you use it?
+Could you use its result? Could you use its method? Should you introduce
+some auxiliary element in order to make its use possible?</li>
+<li>Could you restate the problem? Could you restate it still differently? Go
+back to definitions.</li>
+<li>If you cannot solve the proposed problem, try to solve first some related
+problem. Could you imagine a more accessible related problem? A more
+general problem? A more special problem? An analogous problem? Could
+you solve a part of the problem? Keep only a part of the condition, drop
+the other part; how far is the unknown then determined, how can it vary?
+Could you derive something useful from the data? Could you think of
+other data appropriate to determine the unknown? Could you change the
+unknown or data, or both if necessary, so that the new unknown and the
+new data are nearer to each other?</li>
+<li>Did you use all the data? Did you use the whole condition? Have you
+taken into account all essential notions involved in the problem?</li>
+</ul>
+
+
+<h2>3. CARRYING OUT THE PLAN</h2>
+
+<ul>
+<li><strong>Third.</strong> Carry out your plan.</li>
+<li>Carrying out your plan of the solution, check each step. Can you see clearly
+that the step is correct? Can you prove that it is correct?</li>
+</ul>
+
+
+<h2>4. LOOKING BACK</h2>
+
+<ul>
+<li><strong>Fourth.</strong> Examine the solution obtained.</li>
+<li>Can you check the result? Can you check the argument?</li>
+<li>Can you derive the solution differently? Can you see it at a glance?</li>
+<li>Can you use the result, or the method, for some other problem?</li>
+</ul>
+
+
+<p>ref: <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>http://math.berkeley.edu/~gmelvin/math110sp14/polya.pdf<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>
