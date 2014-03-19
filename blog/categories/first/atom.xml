@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: first | Montree Bungnasang]]></title>
+  <link href="http://gailo22.github.io/blog/categories/first/atom.xml" rel="self"/>
+  <link href="http://gailo22.github.io/"/>
+  <updated>2014-03-19T11:45:26+07:00</updated>
+  <id>http://gailo22.github.io/</id>
+  <author>
+    <name><![CDATA[gailo22]]></name>
+    <email><![CDATA[gailo22@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Pass Function as Argument in Java 8]]></title>
+    <link href="http://gailo22.github.io/blog/2014/03/19/pass-function-as-argument-in-java-8/"/>
+    <updated>2014-03-19T11:15:38+07:00</updated>
+    <id>http://gailo22.github.io/blog/2014/03/19/pass-function-as-argument-in-java-8</id>
+    <content type="html"><![CDATA[<p>Last time I posted about <a href="/blog/2014/02/28/pass-function-as-argument-java/">How to pass function as argument in Java</a> this version using java before java 8, today java 8 is just <a href="https://blogs.oracle.com/thejavatutorials/entry/jdk_8_is_released">released</a>, I will update the previous code to use java. It kinds of cool now. :D</p>
+
+<p>```java</p>
+
+<p>import java.util.function.Function;</p>
+
+<p>public class BinaryTest {</p>
+
+<pre><code>public static void main(String[] args) {
+
+    byte[] bs = "gailo".getBytes();
+
+    System.out.println("oct: " + toString(bs, (x) -&gt; Integer.toString(x)));
+
+    System.out.println("binary: " + toString(bs, Integer::toBinaryString));
+
+    System.out.println("hex: " + toString(bs, Integer::toHexString));
+
+}
+
+private static String toString(byte[] bs, Function&lt;Integer, String&gt; function) {
+    StringBuilder sb = new StringBuilder();
+    for (byte b : bs) {
+        sb.append(function.apply(new Integer(b)));
+        sb.append(" ");
+    }
+    return sb.toString();
+}
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: java | Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-03-12T18:15:16+07:00</updated>
+  <updated>2014-03-19T11:45:26+07:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Pass Function as Argument in Java 8]]></title>
+    <link href="http://gailo22.github.io/blog/2014/03/19/pass-function-as-argument-in-java-8/"/>
+    <updated>2014-03-19T11:15:38+07:00</updated>
+    <id>http://gailo22.github.io/blog/2014/03/19/pass-function-as-argument-in-java-8</id>
+    <content type="html"><![CDATA[<p>Last time I posted about <a href="/blog/2014/02/28/pass-function-as-argument-java/">How to pass function as argument in Java</a> this version using java before java 8, today java 8 is just <a href="https://blogs.oracle.com/thejavatutorials/entry/jdk_8_is_released">released</a>, I will update the previous code to use java. It kinds of cool now. :D</p>
+
+<p>```java</p>
+
+<p>import java.util.function.Function;</p>
+
+<p>public class BinaryTest {</p>
+
+<pre><code>public static void main(String[] args) {
+
+    byte[] bs = "gailo".getBytes();
+
+    System.out.println("oct: " + toString(bs, (x) -&gt; Integer.toString(x)));
+
+    System.out.println("binary: " + toString(bs, Integer::toBinaryString));
+
+    System.out.println("hex: " + toString(bs, Integer::toHexString));
+
+}
+
+private static String toString(byte[] bs, Function&lt;Integer, String&gt; function) {
+    StringBuilder sb = new StringBuilder();
+    for (byte b : bs) {
+        sb.append(function.apply(new Integer(b)));
+        sb.append(" ");
+    }
+    return sb.toString();
+}
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Create Integration Test with Spring]]></title>
@@ -347,7 +388,7 @@ assertThat(returnUser, equalTo(userMock));
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toOct</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">bs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
 </span><span class='line'>    <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
 </span><span class='line'>        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>
@@ -356,7 +397,7 @@ assertThat(returnUser, equalTo(userMock));
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toBin</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">bs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
 </span><span class='line'>    <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toBinaryString</span><span class="o">(</span><span class="n">b</span><span class="o">));</span>
 </span><span class='line'>        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>
@@ -365,7 +406,7 @@ assertThat(returnUser, equalTo(userMock));
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toHex</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">bs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
 </span><span class='line'>    <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">b</span><span class="o">));</span>
 </span><span class='line'>        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>
@@ -467,7 +508,7 @@ assertThat(returnUser, equalTo(userMock));
 </span><span class='line'><span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span><span class="o">,</span> <span class="n">Function</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">String</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">function</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">bs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
 </span><span class='line'>    <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">function</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="n">b</span><span class="o">)));</span>
 </span><span class='line'>        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>

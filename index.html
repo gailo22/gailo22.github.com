@@ -9,8 +9,7 @@
   <meta name="author" content="gailo22">
 
   
-  <meta name="description" content="In 1945 George Polya published the book How To Solve It which quickly became
-his most prized publication. It sold over one million copies and has &hellip;">
+  <meta name="description" content="Last time I posted about How to pass function as argument in Java this version using java before java 8, today java 8 is just released, I will update &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +65,97 @@ his most prized publication. It sold over one million copies and has &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/19/pass-function-as-argument-in-java-8/">Pass Function as Argument in Java 8</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-19T11:15:38+07:00" pubdate data-updated="true">Mar 19<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last time I posted about <a href="/blog/2014/02/28/pass-function-as-argument-java/">How to pass function as argument in Java</a> this version using java before java 8, today java 8 is just <a href="https://blogs.oracle.com/thejavatutorials/entry/jdk_8_is_released">released</a>, I will update the previous code to use java. It kinds of cool now. :D</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">java.util.function.Function</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BinaryTest</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span> <span class="o">=</span> <span class="s">&quot;gailo&quot;</span><span class="o">.</span><span class="na">getBytes</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;oct: &quot;</span> <span class="o">+</span> <span class="n">toString</span><span class="o">(</span><span class="n">bs</span><span class="o">,</span> <span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">Integer</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">x</span><span class="o">)));</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;binary: &quot;</span> <span class="o">+</span> <span class="n">toString</span><span class="o">(</span><span class="n">bs</span><span class="o">,</span> <span class="nl">Integer:</span><span class="o">:</span><span class="n">toBinaryString</span><span class="o">));</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;hex: &quot;</span> <span class="o">+</span> <span class="n">toString</span><span class="o">(</span><span class="n">bs</span><span class="o">,</span> <span class="nl">Integer:</span><span class="o">:</span><span class="n">toHexString</span><span class="o">));</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span><span class="o">,</span> <span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">function</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
+</span><span class='line'>      <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">function</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="n">b</span><span class="o">)));</span>
+</span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="o">}</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -742,7 +832,7 @@ that the step is correct? Can you prove that it is correct?</li>
 </span><span class='line'>  <span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toOct</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">bs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
 </span><span class='line'>      <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>
@@ -751,7 +841,7 @@ that the step is correct? Can you prove that it is correct?</li>
 </span><span class='line'>  <span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toBin</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">bs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
 </span><span class='line'>      <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toBinaryString</span><span class="o">(</span><span class="n">b</span><span class="o">));</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>
@@ -760,7 +850,7 @@ that the step is correct? Can you prove that it is correct?</li>
 </span><span class='line'>  <span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toHex</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">bs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
 </span><span class='line'>      <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">b</span><span class="o">));</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>
@@ -855,7 +945,7 @@ that the step is correct? Can you prove that it is correct?</li>
 </span><span class='line'>  <span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span><span class="o">,</span> <span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">function</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">bs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
 </span><span class='line'>      <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">function</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="n">b</span><span class="o">)));</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>
@@ -1042,6 +1132,10 @@ that the step is correct? Can you prove that it is correct?</li>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/19/pass-function-as-argument-in-java-8/">Pass Function as Argument in Java 8</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/12/polyas-problem-solving-techniques/">Polya&#8217;s Problem Solving Techniques</a>
       </li>
     
@@ -1055,10 +1149,6 @@ that the step is correct? Can you prove that it is correct?</li>
     
       <li class="post">
         <a href="/blog/2014/02/28/pass-function-as-argument-java/">Pass function as argument in Java</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/30/hello-scala/">Hello Scala</a>
       </li>
     
   </ul>

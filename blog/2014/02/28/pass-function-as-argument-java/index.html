@@ -154,7 +154,7 @@
 </span><span class='line'>  <span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toOct</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">bs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
 </span><span class='line'>      <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>
@@ -163,7 +163,7 @@
 </span><span class='line'>  <span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toBin</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">bs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
 </span><span class='line'>      <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toBinaryString</span><span class="o">(</span><span class="n">b</span><span class="o">));</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>
@@ -172,7 +172,7 @@
 </span><span class='line'>  <span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toHex</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">bs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
 </span><span class='line'>      <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">b</span><span class="o">));</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>
@@ -267,7 +267,7 @@
 </span><span class='line'>  <span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bs</span><span class="o">,</span> <span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">function</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">bs</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
 </span><span class='line'>      <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bs</span><span class="o">)</span> <span class="o">{</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">function</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="n">b</span><span class="o">)));</span>
 </span><span class='line'>          <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">);</span>
@@ -350,6 +350,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/19/pass-function-as-argument-in-java-8/">Pass Function as Argument in Java 8</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/12/polyas-problem-solving-techniques/">Polya's Problem Solving Techniques</a>
       </li>
     
@@ -363,10 +367,6 @@
     
       <li class="post">
         <a href="/blog/2014/02/28/pass-function-as-argument-java/">Pass function as argument in Java</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/30/hello-scala/">Hello Scala</a>
       </li>
     
   </ul>
