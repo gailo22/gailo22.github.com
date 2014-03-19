@@ -23,7 +23,7 @@ public class BinaryTest {
 	}
 
 	private static String toOct(byte[] bs) {
-		StringBuilder sb = new StringBuilder(bs.length);
+		StringBuilder sb = new StringBuilder();
 		for (byte b : bs) {
 			sb.append(b);
 			sb.append(" ");
@@ -32,7 +32,7 @@ public class BinaryTest {
 	}
 
 	private static String toBin(byte[] bs) {
-		StringBuilder sb = new StringBuilder(bs.length);
+		StringBuilder sb = new StringBuilder();
 		for (byte b : bs) {
 			sb.append(Integer.toBinaryString(b));
 			sb.append(" ");
@@ -41,7 +41,7 @@ public class BinaryTest {
 	}
 
 	private static String toHex(byte[] bs) {
-		StringBuilder sb = new StringBuilder(bs.length);
+		StringBuilder sb = new StringBuilder();
 		for (byte b : bs) {
 			sb.append(Integer.toHexString(b));
 			sb.append(" ");
@@ -93,7 +93,7 @@ public class BinaryTest {
 	}
 
 	private static String toString(byte[] bs, Function<Integer, String> function) {
-		StringBuilder sb = new StringBuilder(bs.length);
+		StringBuilder sb = new StringBuilder();
 		for (byte b : bs) {
 			sb.append(function.apply(new Integer(b)));
 			sb.append(" ");
