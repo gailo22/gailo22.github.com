@@ -58,6 +58,7 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
 </ul>
 
 </nav>
@@ -965,161 +966,9 @@ that the step is correct? Can you prove that it is correct?</li>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/30/hello-scala/">Hello Scala</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-30T17:58:00+07:00" pubdate data-updated="true">Jul 30<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">def</span> <span class="n">hello</span> <span class="k">=</span> <span class="n">println</span><span class="o">(</span><span class="s">&quot;Hello world!&quot;</span><span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Functional style:</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">def</span> <span class="n">append</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">],</span> <span class="n">ys</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="k">=</span>
-</span><span class='line'>  <span class="k">if</span> <span class="o">(</span><span class="n">xs</span> <span class="o">==</span> <span class="nc">Nil</span><span class="o">)</span> <span class="n">ys</span> <span class="k">else</span> <span class="n">xs</span><span class="o">.</span><span class="n">head</span> <span class="o">::</span> <span class="n">append</span><span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">tail</span><span class="o">,</span> <span class="n">ys</span><span class="o">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="n">map</span><span class="o">[</span><span class="kt">A</span>, <span class="kt">B</span><span class="o">](</span><span class="n">f</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=&gt;</span> <span class="n">B</span><span class="o">,</span> <span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">B</span><span class="o">]</span> <span class="k">=</span>
-</span><span class='line'>  <span class="n">xs</span> <span class="k">match</span> <span class="o">{</span>
-</span><span class='line'>    <span class="k">case</span> <span class="nc">Nil</span> <span class="k">=&gt;</span> <span class="nc">Nil</span>
-</span><span class='line'>    <span class="k">case</span> <span class="n">h</span><span class="o">::</span><span class="n">t</span> <span class="k">=&gt;</span> <span class="n">f</span><span class="o">(</span><span class="n">h</span><span class="o">)</span> <span class="o">::</span> <span class="n">map</span><span class="o">(</span><span class="n">f</span><span class="o">,</span> <span class="n">t</span><span class="o">)</span>
-</span><span class='line'>  <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="n">increment</span><span class="o">(</span><span class="n">x</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Usage:</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="n">scala</span><span class="o">&gt;</span> <span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="n">map</span><span class="o">(</span><span class="n">increment</span><span class="o">,</span> <span class="nc">List</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">))</span>
-</span><span class='line'><span class="n">a</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/12/06/hello-python/">Hello Python</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-06T09:01:00+07:00" pubdate data-updated="true">Dec 6<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is my first program with python using gvim is a editor.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="nf">make_add</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">f</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">def</span> <span class="nf">make_add_lambda</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span><span class='line'>    <span class="k">return</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>How to use it</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>agile@COM:~/Desktop$ python -i o.py
-</span><span class='line'>>>> square(2)
-</span><span class='line'>4
-</span><span class='line'>>>> make_add3 = make_add(3)
-</span><span class='line'>>>> make_add3(5)
-</span><span class='line'>8
-</span><span class='line'>>>></span></code></pre></td></tr></table></div></figure>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -1228,6 +1077,14 @@ that the step is correct? Can you prove that it is correct?</li>
 
 
 
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
 
 
 
