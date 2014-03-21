@@ -7,7 +7,13 @@ sharing: true
 footer: true
 ---
 
-This is one of many programon (programmer + pokemon) around the world living in beautiful city of Bangkok, Thailand. Can find at [@gailo22](https://twitter.com/gailo22)
+This is one of many programon (programmer + pokemon) around the world; living in a beautiful city of Bangkok, Thailand. 
 
 ##### Interested: #####
 In programming especially, *[java](http://java.sun.com)*, *[scala](http://scala-lang.org/)* and *[haskell](http://haskell.org)*
+
+##### Can find at: #####
+> [Twitter](https://twitter.com/gailo22) <br />
+> [Github](https://github.com/gailo22) <br />
+> [LinkedIn](http://www.linkedin.com/in/montree) <br />
+> [Google+](https://plus.google.com/+MontreeBungnasang) 
