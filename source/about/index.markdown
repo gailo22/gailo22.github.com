@@ -7,10 +7,10 @@ sharing: true
 footer: true
 ---
 
-This is one of many programon (programmer + pokemon) around the world; living in a beautiful city of Bangkok, Thailand. 
+I'm one of many programon (programmer + pokemon) around the world; living in a beautiful city of Bangkok, Thailand. 
 
 ##### Interested: #####
-In programming especially, *[java](http://java.sun.com)*, *[scala](http://scala-lang.org/)* and *[haskell](http://haskell.org)*
+In programming languages especially; ***[java](http://java.sun.com)***, ***[scala](http://scala-lang.org/)*** and ***[haskell](http://haskell.org)***
 
 ##### Can find at: #####
 > [Twitter](https://twitter.com/gailo22) <br />
