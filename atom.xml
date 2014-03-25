@@ -4,7 +4,7 @@
   <title><![CDATA[Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-03-24T16:36:27+07:00</updated>
+  <updated>2014-03-25T12:52:57+07:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -12,6 +12,76 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Map, Filter and Fold in Haskell]]></title>
+    <link href="http://gailo22.github.io/blog/2014/03/25/map-filter-and-fold-in-haskell/"/>
+    <updated>2014-03-25T11:56:46+07:00</updated>
+    <id>http://gailo22.github.io/blog/2014/03/25/map-filter-and-fold-in-haskell</id>
+    <content type="html"><![CDATA[<p>This example shows 3 key features of functional programming: <code>map</code> <code>filter</code> and <code>map</code> function using <strong>haskell</strong>.</p>
+
+<h2>Map</h2>
+
+<p>The function takes a function from a to b <code>(a -&gt; b)</code> and a list of a <code>[a]</code> then product a list of b <code>[b]</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='haskell'><span class='line'><span class="nf">map</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
+</span><span class='line'><span class="nf">map</span> <span class="n">f</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span> <span class="n">f</span> <span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">xs</span> <span class="p">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">mapRec</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
+</span><span class='line'><span class="nf">mapRec</span> <span class="n">f</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="kt">[]</span>
+</span><span class='line'><span class="nf">mapRec</span> <span class="n">f</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">x</span> <span class="kt">:</span> <span class="n">mapRec</span> <span class="n">f</span> <span class="n">xs</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Filter</h2>
+
+<p>The function takes a predicate function <code>(a -&gt; Bool)</code> that return boolean (true/false) and a list <code>[a]</code> then produce a filtered list <code>[a]</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='haskell'><span class='line'><span class="nf">filter</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+</span><span class='line'><span class="nf">filter</span> <span class="n">p</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span> <span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">,</span> <span class="n">p</span> <span class="n">x</span> <span class="p">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">filterRec</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+</span><span class='line'><span class="nf">filterRec</span> <span class="n">p</span> <span class="kt">[]</span>                 <span class="ow">=</span> <span class="kt">[]</span>
+</span><span class='line'><span class="nf">filterRec</span> <span class="n">p</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="o">|</span> <span class="n">p</span> <span class="n">x</span>       <span class="ow">=</span> <span class="n">x</span> <span class="kt">:</span> <span class="n">filterRec</span> <span class="n">p</span> <span class="n">xs</span>
+</span><span class='line'>                   <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">filterRec</span> <span class="n">p</span> <span class="n">xs</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Fold</h2>
+
+<p>The function takes a 2 parameters function <code>(a -&gt; a -&gt; a)</code>, an initial accumulator and a list then return an accumulate result.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='haskell'><span class='line'><span class="nf">foldr</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+</span><span class='line'><span class="nf">foldr</span> <span class="n">f</span> <span class="n">a</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="n">a</span>
+</span><span class='line'><span class="nf">foldr</span> <span class="n">f</span> <span class="n">a</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">x</span> <span class="p">(</span><span class="n">foldr</span> <span class="n">f</span> <span class="n">a</span> <span class="n">xs</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">foldl</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+</span><span class='line'><span class="nf">foldl</span> <span class="n">f</span> <span class="n">a</span> <span class="kt">[]</span>     <span class="ow">=</span> <span class="n">a</span>
+</span><span class='line'><span class="nf">foldl</span> <span class="n">f</span> <span class="n">a</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">foldl</span> <span class="n">f</span> <span class="p">(</span><span class="n">f</span> <span class="n">a</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Pass Function as Argument in Java 8]]></title>
