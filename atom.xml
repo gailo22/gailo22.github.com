@@ -4,7 +4,7 @@
   <title><![CDATA[Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-03-25T12:52:57+07:00</updated>
+  <updated>2014-04-23T11:27:05+07:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -12,6 +12,87 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Translation of For in scala]]></title>
+    <link href="http://gailo22.github.io/blog/2014/04/23/translation-of-for-in-scala/"/>
+    <updated>2014-04-23T11:05:13+07:00</updated>
+    <id>http://gailo22.github.io/blog/2014/04/23/translation-of-for-in-scala</id>
+    <content type="html"><![CDATA[<p>This example shows how scala translate <code>for</code> loop into term of expression <code>map</code> <code>flatMap</code> and <code>filter</code>.</p>
+
+<h2>1. A simple for-expression (1 generator)</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">e1</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e2</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="n">e1</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">e2</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>2. A for-expression with if</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">e1</span> <span class="k">if</span> <span class="n">f</span><span class="o">;</span> <span class="n">s</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e2</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">e1</span><span class="o">.</span><span class="n">withFilter</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">f</span><span class="o">);</span> <span class="n">s</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e2</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and traslate continue until be a simple form</p>
+
+<h2>3. A for-expression with 2 generators</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">e1</span><span class="o">;</span> <span class="n">y</span> <span class="k">&lt;-</span> <span class="n">e2</span><span class="o">;</span> <span class="n">s</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e3</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="n">e1</span><span class="o">.</span><span class="n">flatMap</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="k">for</span> <span class="o">(</span><span class="n">y</span> <span class="k">&lt;-</span> <span class="n">e2</span><span class="o">;</span> <span class="n">s</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e3</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and traslate continue until be a simple form</p>
+
+<h2>Example:</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">{</span>
+</span><span class='line'>  <span class="n">x</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">N</span>
+</span><span class='line'>  <span class="n">y</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">x</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+</span><span class='line'><span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="n">N</span><span class="o">)</span> <span class="n">flatMap</span> <span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span>
+</span><span class='line'>  <span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="n">x</span><span class="o">)</span> <span class="n">withFilter</span> <span class="o">(</span><span class="n">y</span> <span class="k">=&gt;</span>
+</span><span class='line'>    <span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="n">map</span> <span class="o">(</span><span class="n">y</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Map, Filter and Fold in Haskell]]></title>

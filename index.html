@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
 <!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
@@ -8,7 +9,8 @@
   <meta name="author" content="gailo22">
 
   
-  <meta name="description" content="This example shows 3 key features of functional programming: map filter and map function using haskell. Map The function takes a function from a to b &hellip;">
+  <meta name="description" content="This example shows how scala translate for loop into term of expression map flatMap and filter. 1. A simple for-expression (1 generator) 1
+for (x &lt &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +73,114 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/04/23/translation-of-for-in-scala/">Translation of for in Scala</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-23T11:05:13+07:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This example shows how scala translate <code>for</code> loop into term of expression <code>map</code> <code>flatMap</code> and <code>filter</code>.</p>
+
+<h2>1. A simple for-expression (1 generator)</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">e1</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e2</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="n">e1</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">e2</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>2. A for-expression with if</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">e1</span> <span class="k">if</span> <span class="n">f</span><span class="o">;</span> <span class="n">s</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e2</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">e1</span><span class="o">.</span><span class="n">withFilter</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">f</span><span class="o">);</span> <span class="n">s</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e2</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and traslate continue until be a simple form</p>
+
+<h2>3. A for-expression with 2 generators</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">e1</span><span class="o">;</span> <span class="n">y</span> <span class="k">&lt;-</span> <span class="n">e2</span><span class="o">;</span> <span class="n">s</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e3</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="n">e1</span><span class="o">.</span><span class="n">flatMap</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="k">for</span> <span class="o">(</span><span class="n">y</span> <span class="k">&lt;-</span> <span class="n">e2</span><span class="o">;</span> <span class="n">s</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e3</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and traslate continue until be a simple form</p>
+
+<h2>Example:</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">{</span>
+</span><span class='line'>  <span class="n">x</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">N</span>
+</span><span class='line'>  <span class="n">y</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">x</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+</span><span class='line'><span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="n">N</span><span class="o">)</span> <span class="n">flatMap</span> <span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span>
+</span><span class='line'>  <span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="n">x</span><span class="o">)</span> <span class="n">withFilter</span> <span class="o">(</span><span class="n">y</span> <span class="k">=&gt;</span>
+</span><span class='line'>    <span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="n">map</span> <span class="o">(</span><span class="n">y</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/03/25/map-filter-and-fold-in-haskell/">Map, Filter and Fold in Haskell</a></h1>
     
     
@@ -98,7 +208,7 @@
 
 <h2>Map</h2>
 
-<p>The function takes a function from a to b <code>(a -&gt; b)</code> and a list of a <code>[a]</code> then produce a list of b <code>[b]</code>.</p>
+<p>The function takes a function from a to b <code>(a -&gt; b)</code> and a list of a <code>[a]</code> then product a list of b <code>[b]</code>.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -630,220 +740,6 @@ that the step is correct? Can you prove that it is correct?</li>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/03/create-unit-test-with-mockito/">Create Unit Test With Mockito</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-03T15:21:30+07:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Assume you want to create a unit test for UserService class, getUserByUserName(String username) method.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Service</span><span class="o">(</span><span class="s">&quot;userService&quot;</span><span class="o">)</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserServiceImpl</span> <span class="kd">implements</span> <span class="n">UserService</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Autowired</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">UserDao</span> <span class="n">userDao</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">User</span> <span class="nf">getUserByUserName</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="o">...</span>
-</span><span class='line'>        <span class="n">userDao</span><span class="o">.</span><span class="na">getUserByName</span><span class="o">(</span><span class="n">username</span><span class="o">);</span>
-</span><span class='line'>        <span class="o">...</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Create new class name UserServiceImplTest</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserServiceImplTest</span> <span class="o">{</span>
-</span><span class='line'>    <span class="o">...</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Inject class you want to test</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@InjectMocks</span>
-</span><span class='line'><span class="kd">private</span> <span class="n">UserServiceImpl</span> <span class="n">userService</span><span class="o">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Mock related objects</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Mock</span>
-</span><span class='line'><span class="kd">private</span> <span class="n">UserDao</span> <span class="n">userDaoMock</span><span class="o">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Setup annotation support</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Before</span>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">initMocks</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Create test method</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Test</span>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">shoudXXX</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Verify expectation</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">verify</span><span class="o">(</span><span class="n">userService</span><span class="o">).</span><span class="na">getUserById</span><span class="o">(</span><span class="s">&quot;admin&quot;</span><span class="o">);</span>
-</span><span class='line'><span class="n">assertThat</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="n">equalTo</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Static import required classes</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">org.junit.Before</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">org.mockito.InjectMocks</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">org.mockito.Mock</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">hamcrest</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">IsEqual</span><span class="o">.</span><span class="na">equalTo</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">Assert</span><span class="o">.</span><span class="na">assertThat</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">mockito</span><span class="o">.</span><span class="na">Mockito</span><span class="o">.</span><span class="na">mock</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">mockito</span><span class="o">.</span><span class="na">Mockito</span><span class="o">.</span><span class="na">verify</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">mockito</span><span class="o">.</span><span class="na">Mockito</span><span class="o">.</span><span class="na">when</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">mockito</span><span class="o">.</span><span class="na">MockitoAnnotations</span><span class="o">.</span><span class="na">initMocks</span><span class="o">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>Method Template</h1>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Test</span>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="n">should</span><span class="o">&lt;</span><span class="n">Expecting</span><span class="o">&gt;</span><span class="n">When</span><span class="o">&lt;</span><span class="n">Criteria</span><span class="o">&gt;</span><span class="n">On</span><span class="o">&lt;</span><span class="n">MehtodName</span><span class="o">&gt;</span> <span class="o">{</span>
-</span><span class='line'>    <span class="c1">// Given</span>
-</span><span class='line'>    <span class="n">Declare</span> <span class="n">your</span> <span class="n">mock</span> <span class="n">object</span> <span class="n">and</span> <span class="n">expectation</span><span class="o">.</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// When</span>
-</span><span class='line'>    <span class="n">Invoke</span> <span class="n">method</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">test</span><span class="o">.</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// Then</span>
-</span><span class='line'>    <span class="n">Verify</span> <span class="n">method</span> <span class="n">invocation</span><span class="o">.</span>
-</span><span class='line'>    <span class="n">Check</span> <span class="k">return</span> <span class="n">value</span> <span class="n">from</span> <span class="n">the</span> <span class="n">method</span><span class="o">.</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>Example</h1>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Test</span>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="n">shouldReturnUserWhenUserNameIsNotNullOnGetUserByUserName</span> <span class="o">{</span>
-</span><span class='line'>    <span class="c1">// Given</span>
-</span><span class='line'>    <span class="n">User</span> <span class="n">userMock</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">when</span><span class="o">(</span><span class="n">userDaoMock</span><span class="o">.</span><span class="na">getByUserName</span><span class="o">(</span><span class="s">&quot;admin&quot;</span><span class="o">)).</span><span class="na">thenReturn</span><span class="o">(</span><span class="n">userMock</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// When</span>
-</span><span class='line'>    <span class="n">User</span> <span class="n">returnUser</span> <span class="o">=</span> <span class="n">userService</span><span class="o">.</span><span class="na">getUserByUserName</span><span class="o">(</span><span class="s">&quot;admin&quot;</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// Then</span>
-</span><span class='line'>    <span class="n">assertThat</span><span class="o">(</span><span class="n">returnUser</span><span class="o">,</span> <span class="n">equalTo</span><span class="o">(</span><span class="n">userMock</span><span class="o">));</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -859,6 +755,10 @@ that the step is correct? Can you prove that it is correct?</li>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/04/23/translation-of-for-in-scala/">Translation of For in scala</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/25/map-filter-and-fold-in-haskell/">Map, Filter and Fold in Haskell</a>
       </li>
     
@@ -872,10 +772,6 @@ that the step is correct? Can you prove that it is correct?</li>
     
       <li class="post">
         <a href="/blog/2014/03/05/create-integration-test-with-spring/">Create Integration Test with Spring</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/03/create-unit-test-with-mockito/">Create Unit Test with Mockito</a>
       </li>
     
   </ul>
