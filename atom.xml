@@ -4,7 +4,7 @@
   <title><![CDATA[Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-04-23T11:27:05+07:00</updated>
+  <updated>2014-04-23T16:51:15+07:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -18,7 +18,33 @@
     <link href="http://gailo22.github.io/blog/2014/04/23/translation-of-for-in-scala/"/>
     <updated>2014-04-23T11:05:13+07:00</updated>
     <id>http://gailo22.github.io/blog/2014/04/23/translation-of-for-in-scala</id>
-    <content type="html"><![CDATA[<p>This example shows how scala translate <code>for</code> loop into term of expression <code>map</code> <code>flatMap</code> and <code>filter</code>.</p>
+    <content type="html"><![CDATA[<blockquote><p>There are 2 kinds of <strong>for</strong> in scala:</p>
+
+<blockquote><ol>
+<li>for-loops</li>
+<li>for-comprehensions</li>
+</ol>
+</blockquote></blockquote>
+
+<h1>for-loops</h1>
+
+<p>The for-loops is like for-loops in <code>java</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">xs</span><span class="o">)</span> <span class="n">f</span><span class="o">(</span><span class="n">x</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>is the same as:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="n">xs</span><span class="o">.</span><span class="n">foreach</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">f</span><span class="o">(</span><span class="n">x</span><span class="o">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>for-comprehensions</h1>
+
+<p>This example shows how scala translate <code>for</code> comprehensions into term of expression <code>map</code> <code>flatMap</code> and <code>filter</code>.</p>
 
 <h2>1. A simple for-expression (1 generator)</h2>
 

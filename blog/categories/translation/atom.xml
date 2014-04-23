@@ -4,7 +4,7 @@
   <title><![CDATA[Category: translation | Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/blog/categories/translation/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-04-23T11:27:05+07:00</updated>
+  <updated>2014-04-23T16:51:15+07:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -18,7 +18,30 @@
     <link href="http://gailo22.github.io/blog/2014/04/23/translation-of-for-in-scala/"/>
     <updated>2014-04-23T11:05:13+07:00</updated>
     <id>http://gailo22.github.io/blog/2014/04/23/translation-of-for-in-scala</id>
-    <content type="html"><![CDATA[<p>This example shows how scala translate <code>for</code> loop into term of expression <code>map</code> <code>flatMap</code> and <code>filter</code>.</p>
+    <content type="html"><![CDATA[<blockquote><p>There are 2 kinds of <strong>for</strong> in scala:</p>
+
+<blockquote><ol>
+<li>for-loops</li>
+<li>for-comprehensions</li>
+</ol>
+</blockquote></blockquote>
+
+<h1>for-loops</h1>
+
+<p>The for-loops is like for-loops in <code>java</code></p>
+
+<p><code>scala
+for (x &lt;- xs) f(x)
+</code>
+is the same as:</p>
+
+<p><code>scala
+xs.foreach(x =&gt; f(x))
+</code></p>
+
+<h1>for-comprehensions</h1>
+
+<p>This example shows how scala translate <code>for</code> comprehensions into term of expression <code>map</code> <code>flatMap</code> and <code>filter</code>.</p>
 
 <h2>1. A simple for-expression (1 generator)</h2>
 
