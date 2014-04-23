@@ -5,8 +5,27 @@ date: 2014-04-23 11:05:13 +0700
 comments: true
 categories: scala for translation
 ---
+> There are 2 kinds of **for** in scala:
+>> 1. for-loops
+>> 2. for-comprehensions
 
-This example shows how scala translate `for` loop into term of expression `map` `flatMap` and `filter`.
+for-loops
+===
+The for-loops is like for-loops in `java`
+
+```scala
+for (x <- xs) f(x)
+```
+is the same as:
+
+```scala
+xs.foreach(x => f(x))
+```
+
+for-comprehensions
+===
+
+This example shows how scala translate `for` comprehensions into term of expression `map` `flatMap` and `filter`.
 
 1. A simple for-expression (1 generator)
 ---
