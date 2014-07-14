@@ -4,7 +4,7 @@
   <title><![CDATA[Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-04-23T16:51:15+07:00</updated>
+  <updated>2014-07-14T18:21:25+07:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -12,6 +12,128 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Java 7 Features that I have missed]]></title>
+    <link href="http://gailo22.github.io/blog/2014/07/14/java-7-features-that-i-have-missed/"/>
+    <updated>2014-07-14T17:00:29+07:00</updated>
+    <id>http://gailo22.github.io/blog/2014/07/14/java-7-features-that-i-have-missed</id>
+    <content type="html"><![CDATA[<p>I never have a chance to use the new features of Java 7 in my day-to-day basis project, so just want to keep it as a reference here:</p>
+
+<ul>
+<li>Strings in switch</li>
+<li>Diamond Operator</li>
+<li>try-with-resources statement</li>
+<li>Multi-catch exception</li>
+<li>Files</li>
+<li>equals, hashCode and comparaTo methods</li>
+<li>Null checks</li>
+</ul>
+
+
+<h2>Strings in switch</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="o">...</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">switch</span> <span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>  <span class="k">case</span> <span class="s">&quot;hello&quot;</span><span class="o">:</span> <span class="o">...;</span> <span class="k">break</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">...</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Diamond Operator</h2>
+
+<p>Instread of:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can write:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>try-with-resources statement</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="k">try</span> <span class="o">(</span><span class="n">Resource</span> <span class="n">res</span> <span class="o">=</span> <span class="o">...)</span> <span class="o">{</span>
+</span><span class='line'>  <span class="o">...</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>when the <code>try</code> block exit, <code>res.close()</code> will be called autometically.</p>
+
+<h2>Multi-catch exception</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="k">try</span> <span class="o">{</span>
+</span><span class='line'> <span class="c1">//do someting;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="k">catch</span><span class="o">(</span><span class="n">Exception1</span><span class="o">,</span> <span class="n">Exception2</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'> <span class="n">handleException</span><span class="o">(</span><span class="n">e</span><span class="o">)</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Files</h2>
+
+<p>It provided static methods to manage a file e.g. <code>Files',</code>Paths`:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Path</span> <span class="n">absolute</span> <span class="o">=</span> <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">,</span> <span class="s">&quot;home&quot;</span><span class="o">,</span> <span class="s">&quot;dev&quot;</span><span class="o">)</span>
+</span><span class='line'><span class="n">Path</span> <span class="n">relative</span> <span class="o">=</span> <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;app&quot;</span><span class="o">,</span> <span class="s">&quot;config&quot;</span><span class="o">,</span> <span class="s">&quot;user.properties&quot;</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>equals, hashCode and comparaTo methods</h2>
+
+<p>There are static mehtods of `Objects&#8217; class:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
+</span><span class='line'><span class="n">Objects</span><span class="o">.</span><span class="na">hashCode</span><span class="o">(</span><span class="n">a</span><span class="o">)</span>
+</span><span class='line'><span class="n">Objects</span><span class="o">.</span><span class="na">hash</span><span class="o">(</span><span class="n">first</span><span class="o">,</span> <span class="n">last</span><span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">Integer</span><span class="o">.</span><span class="na">compare</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Null checks</h2>
+
+<p>A static method to check null:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">String</span> <span class="n">hello</span> <span class="o">=</span> <span class="o">...</span>
+</span><span class='line'><span class="n">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">hello</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Translation of For in scala]]></title>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 7 | Montree Bungnasang]]></title>
+  <link href="http://gailo22.github.io/blog/categories/7/atom.xml" rel="self"/>
+  <link href="http://gailo22.github.io/"/>
+  <updated>2014-07-14T18:21:25+07:00</updated>
+  <id>http://gailo22.github.io/</id>
+  <author>
+    <name><![CDATA[gailo22]]></name>
+    <email><![CDATA[gailo22@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Java 7 Features that I have missed]]></title>
+    <link href="http://gailo22.github.io/blog/2014/07/14/java-7-features-that-i-have-missed/"/>
+    <updated>2014-07-14T17:00:29+07:00</updated>
+    <id>http://gailo22.github.io/blog/2014/07/14/java-7-features-that-i-have-missed</id>
+    <content type="html"><![CDATA[<p>I never have a chance to use the new features of Java 7 in my day-to-day basis project, so just want to keep it as a reference here:</p>
+
+<ul>
+<li>Strings in switch</li>
+<li>Diamond Operator</li>
+<li>try-with-resources statement</li>
+<li>Multi-catch exception</li>
+<li>Files</li>
+<li>equals, hashCode and comparaTo methods</li>
+<li>Null checks</li>
+</ul>
+
+
+<h2>Strings in switch</h2>
+
+<p>```java
+String s = &hellip;</p>
+
+<p>switch (s) {</p>
+
+<pre><code>case "hello": ...; break;
+...
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>Diamond Operator</h2>
+
+<p>Instread of:
+<code>java
+Map&lt;String, Integer&gt; = new HashMap&lt;String, Integer&gt;();
+</code>
+You can write:
+<code>java
+Map&lt;String, Integer&gt; = new HashMap&lt;&gt;();
+</code></p>
+
+<h2>try-with-resources statement</h2>
+
+<p>```java
+try (Resource res = &hellip;) {</p>
+
+<pre><code>...
+</code></pre>
+
+<p>}
+```</p>
+
+<p>when the <code>try</code> block exit, <code>res.close()</code> will be called autometically.</p>
+
+<h2>Multi-catch exception</h2>
+
+<p>```java
+try {
+ //do someting;
+}
+catch(Exception1, Exception2 e) {
+ handleException(e)
+}</p>
+
+<p>```</p>
+
+<h2>Files</h2>
+
+<p>It provided static methods to manage a file e.g. <code>Files',</code>Paths`:</p>
+
+<p>```java
+Path absolute = Paths.get(&ldquo;/&rdquo;, &ldquo;home&rdquo;, &ldquo;dev&rdquo;)
+Path relative = Paths.get(&ldquo;app&rdquo;, &ldquo;config&rdquo;, &ldquo;user.properties&rdquo;)</p>
+
+<p>```</p>
+
+<h2>equals, hashCode and comparaTo methods</h2>
+
+<p>There are static mehtods of `Objects' class:</p>
+
+<p>```java
+Objects.equals(a, b)
+Objects.hashCode(a)
+Objects.hash(first, last)</p>
+
+<p>Integer.compare(a, b)</p>
+
+<p>```</p>
+
+<h2>Null checks</h2>
+
+<p>A static method to check null:</p>
+
+<p>```java
+String hello = &hellip;
+Objects.requireNonNull(hello)</p>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>

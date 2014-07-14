@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Translation of For in scala - Montree Bungnasang</title>
+  <title>Java 7 Features that I have missed - Montree Bungnasang</title>
   <meta name="author" content="gailo22">
 
   
-  <meta name="description" content="There are 2 kinds of for in scala: for-loops
-for-comprehensions for-loops The for-loops is like for-loops in java 1
-for (x &lt;- xs) f(x) is the same &hellip;">
+  <meta name="description" content="I never have a chance to use the new features of Java 7 in my day-to-day basis project, so just want to keep it as a reference here: Strings in &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ for (x &lt;- xs) f(x) is the same &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://gailo22.github.io/blog/2014/04/23/translation-of-for-in-scala">
+  <link rel="canonical" href="http://gailo22.github.io/blog/2014/07/14/java-7-features-that-i-have-missed">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Montree Bungnasang" type="application/atom+xml">
@@ -71,7 +69,7 @@ for (x &lt;- xs) f(x) is the same &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Translation of for in Scala</h1>
+      <h1 class="entry-title">Java 7 Features That I Have Missed</h1>
     
     
       <p class="meta">
@@ -87,110 +85,125 @@ for (x &lt;- xs) f(x) is the same &hellip;">
   
 
 
-<time datetime="2014-04-23T11:05:13+07:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2014</time>
+<time datetime="2014-07-14T17:00:29+07:00" pubdate data-updated="true">Jul 14<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><blockquote><p>There are 2 kinds of <strong>for</strong> in scala:</p>
+<div class="entry-content"><p>I never have a chance to use the new features of Java 7 in my day-to-day basis project, so just want to keep it as a reference here:</p>
 
-<blockquote><ol>
-<li>for-loops</li>
-<li>for-comprehensions</li>
-</ol>
-</blockquote></blockquote>
-
-<h1>for-loops</h1>
-
-<p>The for-loops is like for-loops in <code>java</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">xs</span><span class="o">)</span> <span class="n">f</span><span class="o">(</span><span class="n">x</span><span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>Strings in switch</li>
+<li>Diamond Operator</li>
+<li>try-with-resources statement</li>
+<li>Multi-catch exception</li>
+<li>Files</li>
+<li>equals, hashCode and comparaTo methods</li>
+<li>Null checks</li>
+</ul>
 
 
-<p>is the same as:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="n">xs</span><span class="o">.</span><span class="n">foreach</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">f</span><span class="o">(</span><span class="n">x</span><span class="o">))</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>for-comprehensions</h1>
-
-<p>This example shows how scala translate <code>for</code> comprehensions into term of expression <code>map</code> <code>flatMap</code> and <code>filter</code>.</p>
-
-<h2>1. A simple for-expression (1 generator)</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">e1</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e2</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>to:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="n">e1</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">e2</span><span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>2. A for-expression with if</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">e1</span> <span class="k">if</span> <span class="n">f</span><span class="o">;</span> <span class="n">s</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e2</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>to:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">e1</span><span class="o">.</span><span class="n">withFilter</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">f</span><span class="o">);</span> <span class="n">s</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e2</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>and traslate continue until be a simple form</p>
-
-<h2>3. A for-expression with 2 generators</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">x</span> <span class="k">&lt;-</span> <span class="n">e1</span><span class="o">;</span> <span class="n">y</span> <span class="k">&lt;-</span> <span class="n">e2</span><span class="o">;</span> <span class="n">s</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e3</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>to:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="n">e1</span><span class="o">.</span><span class="n">flatMap</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="k">for</span> <span class="o">(</span><span class="n">y</span> <span class="k">&lt;-</span> <span class="n">e2</span><span class="o">;</span> <span class="n">s</span><span class="o">)</span> <span class="k">yield</span> <span class="n">e3</span><span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>and traslate continue until be a simple form</p>
-
-<h2>Example:</h2>
+<h2>Strings in switch</h2>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">for</span> <span class="o">{</span>
-</span><span class='line'>  <span class="n">x</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">N</span>
-</span><span class='line'>  <span class="n">y</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">x</span>
-</span><span class='line'>  <span class="k">if</span> <span class="o">(</span><span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
-</span><span class='line'><span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="o">...</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">switch</span> <span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>  <span class="k">case</span> <span class="s">&quot;hello&quot;</span><span class="o">:</span> <span class="o">...;</span> <span class="k">break</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">...</span>
+</span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>to:</p>
+<h2>Diamond Operator</h2>
+
+<p>Instread of:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can write:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>try-with-resources statement</h2>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="n">N</span><span class="o">)</span> <span class="n">flatMap</span> <span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span>
-</span><span class='line'>  <span class="o">(</span><span class="mi">1</span> <span class="n">to</span> <span class="n">x</span><span class="o">)</span> <span class="n">withFilter</span> <span class="o">(</span><span class="n">y</span> <span class="k">=&gt;</span>
-</span><span class='line'>    <span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="n">map</span> <span class="o">(</span><span class="n">y</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)))</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="k">try</span> <span class="o">(</span><span class="n">Resource</span> <span class="n">res</span> <span class="o">=</span> <span class="o">...)</span> <span class="o">{</span>
+</span><span class='line'>  <span class="o">...</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>when the <code>try</code> block exit, <code>res.close()</code> will be called autometically.</p>
+
+<h2>Multi-catch exception</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="k">try</span> <span class="o">{</span>
+</span><span class='line'> <span class="c1">//do someting;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="k">catch</span><span class="o">(</span><span class="n">Exception1</span><span class="o">,</span> <span class="n">Exception2</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'> <span class="n">handleException</span><span class="o">(</span><span class="n">e</span><span class="o">)</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Files</h2>
+
+<p>It provided static methods to manage a file e.g. <code>Files',</code>Paths`:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Path</span> <span class="n">absolute</span> <span class="o">=</span> <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">,</span> <span class="s">&quot;home&quot;</span><span class="o">,</span> <span class="s">&quot;dev&quot;</span><span class="o">)</span>
+</span><span class='line'><span class="n">Path</span> <span class="n">relative</span> <span class="o">=</span> <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;app&quot;</span><span class="o">,</span> <span class="s">&quot;config&quot;</span><span class="o">,</span> <span class="s">&quot;user.properties&quot;</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>equals, hashCode and comparaTo methods</h2>
+
+<p>There are static mehtods of `Objects&#8217; class:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
+</span><span class='line'><span class="n">Objects</span><span class="o">.</span><span class="na">hashCode</span><span class="o">(</span><span class="n">a</span><span class="o">)</span>
+</span><span class='line'><span class="n">Objects</span><span class="o">.</span><span class="na">hash</span><span class="o">(</span><span class="n">first</span><span class="o">,</span> <span class="n">last</span><span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">Integer</span><span class="o">.</span><span class="na">compare</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Null checks</h2>
+
+<p>A static method to check null:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">String</span> <span class="n">hello</span> <span class="o">=</span> <span class="o">...</span>
+</span><span class='line'><span class="n">Objects</span><span class="o">.</span><span class="na">requireNonNull</span><span class="o">(</span><span class="n">hello</span><span class="o">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 </div>
@@ -215,12 +228,12 @@ for (x &lt;- xs) f(x) is the same &hellip;">
   
 
 
-<time datetime="2014-04-23T11:05:13+07:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2014</time>
+<time datetime="2014-07-14T17:00:29+07:00" pubdate data-updated="true">Jul 14<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/for/'>for</a>, <a class='category' href='/blog/categories/scala/'>scala</a>, <a class='category' href='/blog/categories/translation/'>translation</a>
+    <a class='category' href='/blog/categories/7/'>7</a>, <a class='category' href='/blog/categories/features/'>features</a>, <a class='category' href='/blog/categories/java/'>java</a>, <a class='category' href='/blog/categories/missed/'>missed</a>
   
 </span>
 
@@ -229,7 +242,7 @@ for (x &lt;- xs) f(x) is the same &hellip;">
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://gailo22.github.io/blog/2014/04/23/translation-of-for-in-scala/" data-via="gailo22" data-counturl="http://gailo22.github.io/blog/2014/04/23/translation-of-for-in-scala/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://gailo22.github.io/blog/2014/07/14/java-7-features-that-i-have-missed/" data-via="gailo22" data-counturl="http://gailo22.github.io/blog/2014/07/14/java-7-features-that-i-have-missed/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -240,10 +253,8 @@ for (x &lt;- xs) f(x) is the same &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/03/25/map-filter-and-fold-in-haskell/" title="Previous Post: Map, Filter and Fold in Haskell">&laquo; Map, Filter and Fold in Haskell</a>
+        <a class="basic-alignment left" href="/blog/2014/04/23/translation-of-for-in-scala/" title="Previous Post: Translation of For in scala">&laquo; Translation of For in scala</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/07/14/java-7-features-that-i-have-missed/" title="Next Post: Java 7 Features that I have missed">Java 7 Features that I have missed &raquo;</a>
       
     </p>
   </footer>
@@ -348,8 +359,8 @@ for (x &lt;- xs) f(x) is the same &hellip;">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://gailo22.github.io/blog/2014/04/23/translation-of-for-in-scala/';
-        var disqus_url = 'http://gailo22.github.io/blog/2014/04/23/translation-of-for-in-scala/';
+        var disqus_identifier = 'http://gailo22.github.io/blog/2014/07/14/java-7-features-that-i-have-missed/';
+        var disqus_url = 'http://gailo22.github.io/blog/2014/07/14/java-7-features-that-i-have-missed/';
         var disqus_script = 'embed.js';
       
     (function () {
