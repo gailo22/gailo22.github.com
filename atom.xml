@@ -4,7 +4,7 @@
   <title><![CDATA[Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-07-14T18:21:25+07:00</updated>
+  <updated>2014-07-14T18:27:28+07:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -96,7 +96,7 @@
 
 <h2>Files</h2>
 
-<p>It provided static methods to manage a file e.g. <code>Files',</code>Paths`:</p>
+<p>It provided static methods to manage a file e.g. <code>Files</code>, <code>Paths</code>:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -107,7 +107,7 @@
 
 <h2>equals, hashCode and comparaTo methods</h2>
 
-<p>There are static mehtods of `Objects&#8217; class:</p>
+<p>There are static mehtods of <code>Objects</code> class:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>

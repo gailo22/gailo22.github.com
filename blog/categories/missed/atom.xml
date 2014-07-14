@@ -4,7 +4,7 @@
   <title><![CDATA[Category: missed | Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/blog/categories/missed/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-07-14T18:21:25+07:00</updated>
+  <updated>2014-07-14T18:27:28+07:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -83,7 +83,7 @@ catch(Exception1, Exception2 e) {
 
 <h2>Files</h2>
 
-<p>It provided static methods to manage a file e.g. <code>Files',</code>Paths`:</p>
+<p>It provided static methods to manage a file e.g. <code>Files</code>, <code>Paths</code>:</p>
 
 <p>```java
 Path absolute = Paths.get(&ldquo;/&rdquo;, &ldquo;home&rdquo;, &ldquo;dev&rdquo;)
@@ -93,7 +93,7 @@ Path relative = Paths.get(&ldquo;app&rdquo;, &ldquo;config&rdquo;, &ldquo;user.p
 
 <h2>equals, hashCode and comparaTo methods</h2>
 
-<p>There are static mehtods of `Objects' class:</p>
+<p>There are static mehtods of <code>Objects</code> class:</p>
 
 <p>```java
 Objects.equals(a, b)
