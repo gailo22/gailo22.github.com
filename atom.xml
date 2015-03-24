@@ -4,7 +4,7 @@
   <title><![CDATA[Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-07-14T18:27:28+07:00</updated>
+  <updated>2015-03-24T21:29:03+08:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -14,9 +14,31 @@
 
   
   <entry>
+    <title type="html"><![CDATA[List of Responsive Web Frameworks]]></title>
+    <link href="http://gailo22.github.io/blog/2015/03/24/list-of-responsive-web-frameworks/"/>
+    <updated>2015-03-24T21:16:25+08:00</updated>
+    <id>http://gailo22.github.io/blog/2015/03/24/list-of-responsive-web-frameworks</id>
+    <content type="html"><![CDATA[<p>To make your web application responsive is the essentials part of web devepment now a days. A lot of responsive frameworks have been built for that.
+This is the top list:</p>
+
+<ul>
+<li>Twitter Boostrap (<a href="http://getbootstrap.com/">http://getbootstrap.com/</a>)</li>
+<li>Foundation (<a href="http://foundation.zurb.com/">http://foundation.zurb.com/</a>)</li>
+<li>Gumby (<a href="http://gumbyframework.com/">http://gumbyframework.com/</a>)</li>
+<li>Pure (<a href="http://purecss.io/">http://purecss.io/</a>)</li>
+<li>Base (<a href="http://matthewhartman.github.io/base/">http://matthewhartman.github.io/base/</a>)</li>
+<li>Responsive Grid System (<a href="http://www.responsivegridsystem.com/">http://www.responsivegridsystem.com/</a>)</li>
+<li>Skeleton (<a href="http://getskeleton.com/">http://getskeleton.com/</a>)</li>
+<li>Mueller Grid System (<a href="http://muellergridsystem.com/">http://muellergridsystem.com/</a>)</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Java 7 Features that I have missed]]></title>
     <link href="http://gailo22.github.io/blog/2014/07/14/java-7-features-that-i-have-missed/"/>
-    <updated>2014-07-14T17:00:29+07:00</updated>
+    <updated>2014-07-14T18:00:29+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/07/14/java-7-features-that-i-have-missed</id>
     <content type="html"><![CDATA[<p>I never have a chance to use the new features of Java 7 in my day-to-day basis project, so just want to keep it as a reference here:</p>
 
@@ -138,7 +160,7 @@
   <entry>
     <title type="html"><![CDATA[Translation of For in scala]]></title>
     <link href="http://gailo22.github.io/blog/2014/04/23/translation-of-for-in-scala/"/>
-    <updated>2014-04-23T11:05:13+07:00</updated>
+    <updated>2014-04-23T12:05:13+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/04/23/translation-of-for-in-scala</id>
     <content type="html"><![CDATA[<blockquote><p>There are 2 kinds of <strong>for</strong> in scala:</p>
 
@@ -245,7 +267,7 @@
   <entry>
     <title type="html"><![CDATA[Map, Filter and Fold in Haskell]]></title>
     <link href="http://gailo22.github.io/blog/2014/03/25/map-filter-and-fold-in-haskell/"/>
-    <updated>2014-03-25T11:56:46+07:00</updated>
+    <updated>2014-03-25T12:56:46+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/03/25/map-filter-and-fold-in-haskell</id>
     <content type="html"><![CDATA[<p>This example shows 3 key features of functional programming: <code>map</code> <code>filter</code> and <code>map</code> function using <strong>haskell</strong>.</p>
 
@@ -315,7 +337,7 @@
   <entry>
     <title type="html"><![CDATA[Pass Function as Argument in Java 8]]></title>
     <link href="http://gailo22.github.io/blog/2014/03/19/pass-function-as-argument-in-java-8/"/>
-    <updated>2014-03-19T11:15:38+07:00</updated>
+    <updated>2014-03-19T12:15:38+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/03/19/pass-function-as-argument-in-java-8</id>
     <content type="html"><![CDATA[<p>Last time I posted about <a href="http://gailo22.github.io/blog/2014/02/28/pass-function-as-argument-java/">How to pass function as argument in Java</a> this version using java before java 8, today java 8 is just <a href="https://blogs.oracle.com/thejavatutorials/entry/jdk_8_is_released">released</a>, I will update the previous code to use java. It kinds of cool now. :D</p>
 
@@ -379,7 +401,7 @@
   <entry>
     <title type="html"><![CDATA[Polya's Problem Solving Techniques]]></title>
     <link href="http://gailo22.github.io/blog/2014/03/12/polyas-problem-solving-techniques/"/>
-    <updated>2014-03-12T11:07:26+07:00</updated>
+    <updated>2014-03-12T12:07:26+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/03/12/polyas-problem-solving-techniques</id>
     <content type="html"><![CDATA[<p>In 1945 George Polya published the book How To Solve It which quickly became
 his most prized publication. It sold over one million copies and has been translated
@@ -519,7 +541,7 @@ that the step is correct? Can you prove that it is correct?</li>
   <entry>
     <title type="html"><![CDATA[Create Integration Test with Spring]]></title>
     <link href="http://gailo22.github.io/blog/2014/03/05/create-integration-test-with-spring/"/>
-    <updated>2014-03-05T11:20:55+07:00</updated>
+    <updated>2014-03-05T12:20:55+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/03/05/create-integration-test-with-spring</id>
     <content type="html"><![CDATA[<p>Assume you want to create a integration test for UserDao class which has CRUD methods e.g find, save, update, delete.</p>
 
@@ -701,7 +723,7 @@ that the step is correct? Can you prove that it is correct?</li>
   <entry>
     <title type="html"><![CDATA[Create Unit Test with Mockito]]></title>
     <link href="http://gailo22.github.io/blog/2014/03/03/create-unit-test-with-mockito/"/>
-    <updated>2014-03-03T15:21:30+07:00</updated>
+    <updated>2014-03-03T16:21:30+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/03/03/create-unit-test-with-mockito</id>
     <content type="html"><![CDATA[<p>Assume you want to create a unit test for UserService class, getUserByUserName(String username) method.</p>
 
@@ -888,7 +910,7 @@ that the step is correct? Can you prove that it is correct?</li>
   <entry>
     <title type="html"><![CDATA[Pass function as argument in Java]]></title>
     <link href="http://gailo22.github.io/blog/2014/02/28/pass-function-as-argument-java/"/>
-    <updated>2014-02-28T11:57:17+07:00</updated>
+    <updated>2014-02-28T12:57:17+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/02/28/pass-function-as-argument-java</id>
     <content type="html"><![CDATA[<p>This is an example of passing function as argument in java. It kind of ugly but it can solve my duplicate code problem as below:</p>
 
@@ -1079,7 +1101,7 @@ that the step is correct? Can you prove that it is correct?</li>
   <entry>
     <title type="html"><![CDATA[Hello Scala]]></title>
     <link href="http://gailo22.github.io/blog/2013/07/30/hello-scala/"/>
-    <updated>2013-07-30T17:58:00+07:00</updated>
+    <updated>2013-07-30T17:58:00+08:00</updated>
     <id>http://gailo22.github.io/blog/2013/07/30/hello-scala</id>
     <content type="html"><![CDATA[
 
@@ -1127,7 +1149,7 @@ that the step is correct? Can you prove that it is correct?</li>
   <entry>
     <title type="html"><![CDATA[Hello Python]]></title>
     <link href="http://gailo22.github.io/blog/2012/12/06/hello-python/"/>
-    <updated>2012-12-06T09:01:00+07:00</updated>
+    <updated>2012-12-06T09:01:00+08:00</updated>
     <id>http://gailo22.github.io/blog/2012/12/06/hello-python</id>
     <content type="html"><![CDATA[<p>This is my first program with python using gvim is a editor.</p>
 

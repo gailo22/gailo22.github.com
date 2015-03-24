@@ -4,7 +4,7 @@
   <title><![CDATA[Category: functional | Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/blog/categories/functional/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-07-14T18:27:28+07:00</updated>
+  <updated>2015-03-24T21:29:03+08:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Map, Filter and Fold in Haskell]]></title>
     <link href="http://gailo22.github.io/blog/2014/03/25/map-filter-and-fold-in-haskell/"/>
-    <updated>2014-03-25T11:56:46+07:00</updated>
+    <updated>2014-03-25T12:56:46+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/03/25/map-filter-and-fold-in-haskell</id>
     <content type="html"><![CDATA[<p>This example shows 3 key features of functional programming: <code>map</code> <code>filter</code> and <code>map</code> function using <strong>haskell</strong>.</p>
 
@@ -73,7 +73,7 @@ foldl f a (x:xs) = foldl f (f a x) xs</p>
   <entry>
     <title type="html"><![CDATA[Hello Scala]]></title>
     <link href="http://gailo22.github.io/blog/2013/07/30/hello-scala/"/>
-    <updated>2013-07-30T17:58:00+07:00</updated>
+    <updated>2013-07-30T17:58:00+08:00</updated>
     <id>http://gailo22.github.io/blog/2013/07/30/hello-scala</id>
     <content type="html"><![CDATA[<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>

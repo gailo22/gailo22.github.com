@@ -4,7 +4,7 @@
   <title><![CDATA[Category: features | Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/blog/categories/features/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-07-14T18:27:28+07:00</updated>
+  <updated>2015-03-24T21:29:03+08:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Java 7 Features that I have missed]]></title>
     <link href="http://gailo22.github.io/blog/2014/07/14/java-7-features-that-i-have-missed/"/>
-    <updated>2014-07-14T17:00:29+07:00</updated>
+    <updated>2014-07-14T18:00:29+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/07/14/java-7-features-that-i-have-missed</id>
     <content type="html"><![CDATA[<p>I never have a chance to use the new features of Java 7 in my day-to-day basis project, so just want to keep it as a reference here:</p>
 

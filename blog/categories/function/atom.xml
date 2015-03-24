@@ -4,7 +4,7 @@
   <title><![CDATA[Category: function | Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/blog/categories/function/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-07-14T18:27:28+07:00</updated>
+  <updated>2015-03-24T21:29:03+08:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Pass Function as Argument in Java 8]]></title>
     <link href="http://gailo22.github.io/blog/2014/03/19/pass-function-as-argument-in-java-8/"/>
-    <updated>2014-03-19T11:15:38+07:00</updated>
+    <updated>2014-03-19T12:15:38+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/03/19/pass-function-as-argument-in-java-8</id>
     <content type="html"><![CDATA[<p>Last time I posted about <a href="/blog/2014/02/28/pass-function-as-argument-java/">How to pass function as argument in Java</a> this version using java before java 8, today java 8 is just <a href="https://blogs.oracle.com/thejavatutorials/entry/jdk_8_is_released">released</a>, I will update the previous code to use java. It kinds of cool now. :D</p>
 
@@ -57,7 +57,7 @@ private static String toString(byte[] bs, Function&lt;Integer, String&gt; functi
   <entry>
     <title type="html"><![CDATA[Pass function as argument in Java]]></title>
     <link href="http://gailo22.github.io/blog/2014/02/28/pass-function-as-argument-java/"/>
-    <updated>2014-02-28T11:57:17+07:00</updated>
+    <updated>2014-02-28T12:57:17+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/02/28/pass-function-as-argument-java</id>
     <content type="html"><![CDATA[<p>This is an example of passing function as argument in java. It kind of ugly but it can solve my duplicate code problem as below:</p>
 

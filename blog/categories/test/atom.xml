@@ -4,7 +4,7 @@
   <title><![CDATA[Category: test | Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/blog/categories/test/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2014-07-14T18:27:28+07:00</updated>
+  <updated>2015-03-24T21:29:03+08:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Create Integration Test with Spring]]></title>
     <link href="http://gailo22.github.io/blog/2014/03/05/create-integration-test-with-spring/"/>
-    <updated>2014-03-05T11:20:55+07:00</updated>
+    <updated>2014-03-05T12:20:55+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/03/05/create-integration-test-with-spring</id>
     <content type="html"><![CDATA[<p>Assume you want to create a integration test for UserDao class which has CRUD methods e.g find, save, update, delete.</p>
 
@@ -149,7 +149,7 @@ assertThat(foundUser.getLastModifiedBy(), equalTo("admin"));
   <entry>
     <title type="html"><![CDATA[Create Unit Test with Mockito]]></title>
     <link href="http://gailo22.github.io/blog/2014/03/03/create-unit-test-with-mockito/"/>
-    <updated>2014-03-03T15:21:30+07:00</updated>
+    <updated>2014-03-03T16:21:30+08:00</updated>
     <id>http://gailo22.github.io/blog/2014/03/03/create-unit-test-with-mockito</id>
     <content type="html"><![CDATA[<p>Assume you want to create a unit test for UserService class, getUserByUserName(String username) method.</p>
 
