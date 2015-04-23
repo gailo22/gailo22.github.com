@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: command | Montree Bungnasang]]></title>
+  <link href="http://gailo22.github.io/blog/categories/command/atom.xml" rel="self"/>
+  <link href="http://gailo22.github.io/"/>
+  <updated>2015-04-23T23:10:09+08:00</updated>
+  <id>http://gailo22.github.io/</id>
+  <author>
+    <name><![CDATA[gailo22]]></name>
+    <email><![CDATA[gailo22@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[GIT useful commands]]></title>
+    <link href="http://gailo22.github.io/blog/2015/04/23/git-useful-commands/"/>
+    <updated>2015-04-23T22:59:04+08:00</updated>
+    <id>http://gailo22.github.io/blog/2015/04/23/git-useful-commands</id>
+    <content type="html"><![CDATA[<p>This is a collections of <code>git</code> commands I use as a references when I was lazy to remember them all:</p>
+
+<h2>Create and Checkout a New Branch</h2>
+
+<h2>Branches from currently checked out directory</h2>
+
+<p><code>
+$ git checkout -b &lt;branchName&gt;
+</code></p>
+
+<h2>Checkout a Remote Branch</h2>
+
+<p><code>
+$ git checkout -b &lt;localBranchName&gt; origin/&lt;remoteBranchName&gt;
+</code></p>
+
+<h2>Clone specific branch from remote</h2>
+
+<p><code>
+$ git clone -b &lt;branch&gt; &lt;remote_repo&gt;
+</code></p>
+
+<h2>Abort Changes of a File</h2>
+
+<p><code>
+$ git checkout -- &lt;fileName&gt;
+</code></p>
+
+<h2>Modify the Previous Commit&rsquo;s Message</h2>
+
+<p><code>
+$ git commit --amend
+</code></p>
+
+<h2>Partial Change Checkin</h2>
+
+<p><code>
+$ git add --edit
+</code></p>
+
+<h2>Undo the Previous Commit</h2>
+
+<p><code>
+$ git revert HEAD^
+</code></p>
+
+<h2>Temporarily Stash Changes, Restore Later</h2>
+
+<h2>After changes have been made&hellip;</h2>
+
+<p>```
+$ git stash
+&hellip;</p>
+
+<p>Do some other stuff here, like switch branches, merge other changes, etc.</p>
+
+<p>Re-apply the changes
+&hellip;</p>
+
+<p>$ git stash pop
+```</p>
+
+<h2>Rename a local branch</h2>
+
+<p><code>
+$ git branch -m &lt;new branch name&gt;
+</code></p>
+
+<h2>Delete a local branch</h2>
+
+<p><code>
+$ git branch -d the_local_branch
+</code></p>
+
+<h2>Delete a Remote Branch</h2>
+
+<p><code>
+$ git push origin :&lt;branchName&gt;
+</code></p>
+
+<h2>Add a remote branch</h2>
+
+<p><code>
+$ git remote add &lt;remoteName&gt; &lt;gitAddress&gt;
+</code></p>
+
+<h2>Get changes from that branch</h2>
+
+<p><code>
+$ git fetch &lt;remoteName&gt;
+</code></p>
+
+<h2>Tagging, Deleting, and Pushing Tags</h2>
+
+<h2>Create a Tag</h2>
+
+<p><code>
+$ git tag &lt;tagName&gt;
+</code></p>
+
+<h2>Delete the tag</h2>
+
+<p><code>
+$ git tag -d &lt;tagName&gt;
+</code></p>
+
+<h2>Push Tags</h2>
+
+<p><code>
+$ git push --tags
+</code></p>
+
+<h2>Combining multiple commits before pushing in Git</h2>
+
+<p>```
+$ git rebase -i origin/master</p>
+
+<h1>(-i is for &ldquo;interactive&rdquo;)</h1>
+
+<p>```</p>
+
+<h2>Fixing bugs process</h2>
+
+<p>```
+$ git checkout -b issue-#001 master</p>
+
+<h1>Fix the bug &hellip;</h1>
+
+<p>$ git checkout master
+$ git merge issue-#001
+$ git push</p>
+
+<h1>also push to develop branch</h1>
+
+<p>$ git checkout develop
+$ git merge issue-#001
+$ git push
+$ git branch -d issue-#001</p>
+
+<h1>non-fast-forward-merge</h1>
+
+<p>$ git merge &mdash;no-ff
+```</p>
+
+<h2>Create new branch on remote repo</h2>
+
+<p><code>
+$ git branch develop
+$ git push -u origin develop
+</code></p>
+
+<h2>Whenever you merge something into master, you should tag the commit for easy reference:</h2>
+
+<p><code>
+$ git tag -a 0.1 -m "Initial public release" master
+$ git push --tags
+</code></p>
+
+<h2>Force pull from remote</h2>
+
+<p><code>
+$ git fetch --all
+$ git reset --hard origin/master
+</code>
+<code>
+$ git checkout develop
+Switched to branch 'develop'
+$ git merge --no-ff myfeature
+Updating ea1b82a..05e9557
+(Summary of changes)
+$ git branch -d myfeature
+Deleted branch myfeature (was 05e9557).
+$ git push origin develop
+</code></p>
+
+<h2>Remove all deleted files before commit</h2>
+
+<p>```
+$ git rm</p>
+
+<p>$(git ls-files &mdash;deleted)
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <title><![CDATA[Montree Bungnasang]]></title>
   <link href="http://gailo22.github.io/atom.xml" rel="self"/>
   <link href="http://gailo22.github.io/"/>
-  <updated>2015-03-24T21:29:03+08:00</updated>
+  <updated>2015-04-23T23:10:09+08:00</updated>
   <id>http://gailo22.github.io/</id>
   <author>
     <name><![CDATA[gailo22]]></name>
@@ -12,6 +12,227 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[GIT useful commands]]></title>
+    <link href="http://gailo22.github.io/blog/2015/04/23/git-useful-commands/"/>
+    <updated>2015-04-23T22:59:04+08:00</updated>
+    <id>http://gailo22.github.io/blog/2015/04/23/git-useful-commands</id>
+    <content type="html"><![CDATA[<p>This is a collections of <code>git</code> commands I use as a references when I was lazy to remember them all:</p>
+
+<h2>Create and Checkout a New Branch</h2>
+
+<h2>Branches from currently checked out directory</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git checkout -b &lt;branchName&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Checkout a Remote Branch</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git checkout -b &lt;localBranchName&gt; origin/&lt;remoteBranchName&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Clone specific branch from remote</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone -b &lt;branch&gt; &lt;remote_repo&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Abort Changes of a File</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git checkout -- &lt;fileName&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Modify the Previous Commit&rsquo;s Message</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git commit --amend</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Partial Change Checkin</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git add --edit</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Undo the Previous Commit</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git revert HEAD^</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Temporarily Stash Changes, Restore Later</h2>
+
+<h2>After changes have been made&hellip;</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git stash
+</span><span class='line'>...
+</span><span class='line'>
+</span><span class='line'>Do some other stuff here, like switch branches, merge other changes, etc.
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>Re-apply the changes
+</span><span class='line'>...
+</span><span class='line'>
+</span><span class='line'>$ git stash pop</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Rename a local branch</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git branch -m &lt;new branch name&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Delete a local branch</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git branch -d the_local_branch</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Delete a Remote Branch</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git push origin :&lt;branchName&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Add a remote branch</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git remote add &lt;remoteName&gt; &lt;gitAddress&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Get changes from that branch</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git fetch &lt;remoteName&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Tagging, Deleting, and Pushing Tags</h2>
+
+<h2>Create a Tag</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git tag &lt;tagName&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Delete the tag</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git tag -d &lt;tagName&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Push Tags</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git push --tags</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Combining multiple commits before pushing in Git</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git rebase -i origin/master
+</span><span class='line'>#(-i is for "interactive")</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Fixing bugs process</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git checkout -b issue-#001 master
+</span><span class='line'># Fix the bug ...
+</span><span class='line'>$ git checkout master
+</span><span class='line'>$ git merge issue-#001
+</span><span class='line'>$ git push
+</span><span class='line'>
+</span><span class='line'># also push to develop branch
+</span><span class='line'>$ git checkout develop
+</span><span class='line'>$ git merge issue-#001
+</span><span class='line'>$ git push
+</span><span class='line'>$ git branch -d issue-#001
+</span><span class='line'>
+</span><span class='line'># non-fast-forward-merge
+</span><span class='line'>$ git merge --no-ff</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Create new branch on remote repo</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git branch develop
+</span><span class='line'>$ git push -u origin develop</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Whenever you merge something into master, you should tag the commit for easy reference:</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git tag -a 0.1 -m "Initial public release" master
+</span><span class='line'>$ git push --tags</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Force pull from remote</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git fetch --all
+</span><span class='line'>$ git reset --hard origin/master</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git checkout develop
+</span><span class='line'>Switched to branch 'develop'
+</span><span class='line'>$ git merge --no-ff myfeature
+</span><span class='line'>Updating ea1b82a..05e9557
+</span><span class='line'>(Summary of changes)
+</span><span class='line'>$ git branch -d myfeature
+</span><span class='line'>Deleted branch myfeature (was 05e9557).
+</span><span class='line'>$ git push origin develop</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Remove all deleted files before commit</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git rm
+</span><span class='line'>
+</span><span class='line'>$(git ls-files --deleted)</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[List of Responsive Web Frameworks]]></title>
