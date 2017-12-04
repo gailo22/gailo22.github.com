@@ -9,7 +9,7 @@ categories: java function passing
 This is an example of passing function as argument in java. It kind of ugly but it can solve my duplicate code problem as below:
 
 ### Before
-```
+```java
 public class BinaryTest {
 
 	public static void main(String[] args) {
@@ -55,8 +55,7 @@ public class BinaryTest {
 
 ### After
 
-```
-
+```java
 import com.google.common.base.Function;
 
 public class BinaryTest {

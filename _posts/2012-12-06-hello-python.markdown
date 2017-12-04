@@ -9,7 +9,7 @@ categories: python closure lambda
 
 This is my first program with python using gvim is a editor.
 
-```
+```python
 def square(x):
     return x * x
 
@@ -25,7 +25,7 @@ def make_add_lambda(x):
 
 ### How to use it
 
-```
+```sh
 agile@COM:~/Desktop$ python -i o.py
 >>> square(2)
 4

@@ -8,7 +8,7 @@ categories: scala functional
 
 ### Hello World!
 
-```
+```scala
 
 def hello = println("Hello world!")
 
