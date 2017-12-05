@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Solr, Zookeeper and Docker configuration"
-date: 2015-04-23 22:59:04 +0800
+date: 2017-12-05 10:30:04 +0800
 comments: true
 categories: solr zookkeeper docker setup 
 ---
