@@ -3,7 +3,7 @@ layout: post
 title: "Solr, Zookeeper and Docker configuration"
 date: 2017-12-05 10:30:04 +0800
 comments: true
-categories: solr zookkeeper docker setup 
+categories: solr zookeeper docker setup 
 ---
 # Setup Solr Cloud cluster with Zookeeper using Docker
 This is how my current project setup the environments of Solr Cloud, ZooKeeper, Consul and Docker.

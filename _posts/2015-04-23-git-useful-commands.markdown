@@ -177,7 +177,5 @@ $ git push origin develop
 #### Remove all deleted files before commit
 
 ```sh
-$ git rm
-
-$(git ls-files --deleted)
+$ git rm $(git ls-files --deleted)
 ```
