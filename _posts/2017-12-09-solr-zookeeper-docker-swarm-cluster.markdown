@@ -5,11 +5,11 @@ date: 2017-12-09 01:35:04 +0800
 comments: true
 categories: solr zookeeper docker swarm cluster
 ---
-# Setup Solr Cloud cluster with Zookeeper using Docker Swarm cluster
+## Setup Solr Cloud cluster with Zookeeper using Docker Swarm cluster
 Previous post I show how my current project setup solr cluster. The setup using docker 1.12 which is quite old and it required external data storage for clustering like consul. For current docker version which is 17.09 it's already built in data store using Raft db. It will be more easier fot setup as following.
 
 ### Prerequisites
-Install docker for all machine follow [this](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
+* Install docker for all machine follow [this](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 
 ### Setup swarm cluster
 ```
@@ -82,7 +82,41 @@ You can see REPLICAS is 3/3 now.
 
 
 ### Setup zookeeper cluster
-Previously we have only one zookeepr running. When we kill it whole solr cluster will die also.
+Previously we have only one zookeepr running. When we kill it whole solr cluster will die also. Below is the stack.yml file:
+```
+version: '3.1'
+
+services:
+  zoo1:
+    image: zookeeper
+    restart: always
+    hostname: zoo1
+    ports:
+      - 2181:2181
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
+
+  zoo2:
+    image: zookeeper
+    restart: always
+    hostname: zoo2
+    ports:
+      - 2182:2181
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
+
+  zoo3:
+    image: zookeeper
+    restart: always
+    hostname: zoo3
+    ports:
+      - 2183:2181
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
+```
 
 This time we will setup zookeeper cluster so it won't be a single point of failure.
 ```
