@@ -5,8 +5,7 @@ date: 2017-12-09 01:35:04 +0800
 comments: true
 categories: solr zookeeper docker swarm cluster
 ---
-## Setup Solr Cloud cluster with Zookeeper using Docker Swarm cluster
-Previous post I show how my current project setup solr cluster. The setup using docker 1.12 which is quite old and it required external data storage for clustering like consul. For current docker version which is 17.09 it's already built in data store using Raft db. It will be more easier fot setup as following.
+In my previous post I show how my current project setup solr cluster. The setup using docker 1.12 which is quite old and it required external data storage for clustering like consul. For current docker version which is 17.09 it's already built in data store using Raft db. It will be more easier for setup as following.
 
 ### Prerequisites
 * Install docker for all machine follow [this](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
