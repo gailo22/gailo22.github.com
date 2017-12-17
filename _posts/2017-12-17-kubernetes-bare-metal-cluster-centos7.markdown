@@ -5,7 +5,7 @@ date: 2017-12-17 17:35:04 +0800
 comments: true
 categories: kubernetes cluster bare metal centos 7
 ---
-When you setup your local development environemnt, you can use Minikube to manage the kubernetes cluster. But Minikube can only has one master node cluster which may not suitable for your SIT, UAT, Production environment which shared by other developers. If you use cloud providers you can use [KOPS](https://github.com/kubernetes/kops) for AWS, [GKE](https://cloud.google.com/kubernetes-engine/) for GCP or [ACS]()https://azure.microsoft.com/en-us/services/container-service/ for Azure.
+When you setup your local development environemnt, you can use Minikube to manage the kubernetes cluster. But Minikube can only has one master node cluster which may not suitable for your SIT, UAT, Production environment which shared by other developers. If you use cloud providers you can use [KOPS](https://github.com/kubernetes/kops) for AWS, [GKE](https://cloud.google.com/kubernetes-engine/) for GCP or [ACS](https://azure.microsoft.com/en-us/services/container-service/) for Azure.
 
 In this post I will show how to setup 3 nodes kubernetes cluster on bare metal Centos 7 machine. The vms will be initialized by Vagrant as:
 * kube-master with IP 192.168.100.10
@@ -20,16 +20,16 @@ In this post I will show how to setup 3 nodes kubernetes cluster on bare metal C
 ### Install docker
 Switch to root and install docker.
 ```
-sudo su -
-yum install -y docker
-systemctl enable docker && systemctl start docker
+$ sudo su -
+$ yum install -y docker
+$ systemctl enable docker && systemctl start docker
 ```
 
 ### Install kubeadm, kubelet and kubectl
 We will use kubeadm to setup the cluser.
 
 ```
-cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+$ cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
 baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
@@ -62,11 +62,16 @@ sysctl -p
 
 ### Initialize the cluster
 You can run `kubeadm init` to initialize the cluster. But if you use Funnel you need to pass `--pod-network-cidr=10.244.0.0/16` and `--apiserver-advertise-address=<Master Node IP>`
+
+In case you need to reset and delete your in complete cluster, run command below:
 ```
 kubeadm reset
 systemctl daemon-reload
 systemctl restart kubelet
+```
 
+Init your cluster.
+```
 [root@kube-master ~]# kubeadm init --skip-preflight-checks --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.100.10
 Flag --skip-preflight-checks has been deprecated, it is now equivalent to --ignore-preflight-errors=all
 [init] Using Kubernetes version: v1.9.0
