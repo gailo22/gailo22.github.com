@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Kubernetes Cluster on bar metal Centos 7"
+title: "Kubernetes Cluster on bare metal Centos 7"
 date: 2017-12-17 17:35:04 +0800
 comments: true
 categories: kubernetes cluster bare metal centos 7
 ---
-When you setup your local development environemnt, you can use Minikube to manage the kubernetes environment. But Minikube can only has one master node cluster which may not suitable for you SIT, UAT, Production which shared by ohter developer. If you use cloud providers you can use KOPS for AWS or GKE for GCP or ACS for Azure.
+When you setup your local development environemnt, you can use Minikube to manage the kubernetes cluster. But Minikube can only has one master node cluster which may not suitable for your SIT, UAT, Production environment which shared by other developers. If you use cloud providers you can use [KOPS](https://github.com/kubernetes/kops) for AWS, [GKE](https://cloud.google.com/kubernetes-engine/) for GCP or [ACS]()https://azure.microsoft.com/en-us/services/container-service/ for Azure.
 
 In this post I will show how to setup 3 nodes kubernetes cluster on bare metal Centos 7 machine. The vms will be initialized by Vagrant as:
 * kube-master with IP 192.168.100.10
@@ -13,12 +13,12 @@ In this post I will show how to setup 3 nodes kubernetes cluster on bare metal C
 * kube-node-2 with IP 192.168.100.12
 
 ### Prerequisites
-* Vagrant with Centos7 3 nodes box
+* Vagrant with Centos7 with 3 nodes box
 * Docker
 * Kubernetes
 
 ### Install docker
-
+Switch to root and install docker.
 ```
 sudo su -
 yum install -y docker
@@ -55,7 +55,7 @@ systemctl start ntpd.service
 swapoff -a
 vi /etc/fstab
 vi /etc/sysctl.conf
-# add
+# add below
 net.bridge.bridge-nf-call-iptables = 1
 sysctl -p
 ```
@@ -122,7 +122,9 @@ as root:
 
 [root@kube-master ~]#
 [root@kube-master ~]#  👍 5
-
+```
+Check the deployment status. Some pods are still not ready.
+```
 [vagrant@kube-master ~]$ kubectl get pods --all-namespaces
 NAMESPACE     NAME                                  READY     STATUS    RESTARTS   AGE
 kube-system   etcd-kube-master                      1/1       Running   0          2m
@@ -151,7 +153,7 @@ kube-system   kube-scheduler-kube-master            1/1       Running   0       
 ```
 
 ### Join cluster from nodes
-After the cluster is initialize and funnell is installed and running as above. 
+After the cluster is initialized and funnel is installed and running as above. 
 We can join the cluster from other nodes as below:
 ```
 [root@kube-node-1 ~]# kubeadm join --token 44b91f.fa0036e25258c0d4 192.168.100.10:6443 --discovery-token-ca-cert-hash sha256:0ecb4332f59ae042c959fcb477576c974cd637038188819cabe0cf875ad90afa
@@ -262,7 +264,7 @@ user-db        ClusterIP   10.104.56.166    <none>        27017/TCP      13m
 ```
 
 #### Access the microservices web app
-The front-end web app is deployed to kube-node-1 which is the ip 192.168.100.12, so try access it by open `http://192.168.100.12:30001/index.html`. 
+The front-end web app is deployed to kube-node-2 which is the IP 192.168.100.12, so try access it by open `http://192.168.100.12:30001/index.html`. 
 
 You will see the Sock Shop open on your browser. NICE!!
 ```
