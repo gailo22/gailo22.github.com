@@ -61,7 +61,7 @@ sysctl -p
 ```
 
 ### Initialize the cluster
-You can run `kubeadm init` to initialize the cluster. But if you use Funnel you need to pass `--pod-network-cidr=10.244.0.0/16` and `--apiserver-advertise-address=<Master Node IP>`
+You can run `kubeadm init` to initialize the cluster. But if you use Flannel you need to pass `--pod-network-cidr=10.244.0.0/16` and `--apiserver-advertise-address=<Master Node IP>`
 
 In case you need to reset and delete your in complete cluster, run command below:
 ```
@@ -141,8 +141,8 @@ kube-system   kube-scheduler-kube-master            1/1       Running   0       
 
 ```
 
-### Install a pod network - Fannel
-We can choose from many network plugins. In this case I choose Funnel, so install it using kubectl.
+### Install a pod network - Flannel
+We can choose from many network plugins. In this case I choose Flannel, so install it using kubectl.
 ```
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
 
@@ -158,7 +158,7 @@ kube-system   kube-scheduler-kube-master            1/1       Running   0       
 ```
 
 ### Join cluster from nodes
-After the cluster is initialized and funnel is installed and running as above. 
+After the cluster is initialized and flannel is installed and running as above. 
 We can join the cluster from other nodes as below:
 ```
 [root@kube-node-1 ~]# kubeadm join --token 44b91f.fa0036e25258c0d4 192.168.100.10:6443 --discovery-token-ca-cert-hash sha256:0ecb4332f59ae042c959fcb477576c974cd637038188819cabe0cf875ad90afa
