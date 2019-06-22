@@ -14,7 +14,8 @@ This post I want to try setup istio on gogle cloud. Initially I have tried on my
 - [Download the Istio release](https://istio.io/docs/setup/kubernetes/#downloading-the-release)
 
 ```
-$ gcloud container clusters create istio-cluster \                      --cluster-version latest \
+$ gcloud container clusters create istio-cluster \                      
+  --cluster-version latest \
   --num-nodes 4 \
   --zone asia-southeast1-b \
   --project gailo22-hello-istio
@@ -136,4 +137,4 @@ $ samples/bookinfo/platform/kube/cleanup.sh
 ### Summary
 This is a sample application running on google cloud with istio.
 
-![Alt Text](images/sample-istio-app.png)
+![Alt Text](/images/sample-istio-app.png)
