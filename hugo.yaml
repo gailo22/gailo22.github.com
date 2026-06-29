@@ -1,6 +1,10 @@
 baseURL: https://www.montree.me/
 title: The Programon's Blog
 enableRobotsTXT: true
+
+services:
+  googleAnalytics:
+    id: G-DZZH4BYP2T
 summaryLength: 30
 
 module:
