@@ -2,14 +2,15 @@
 <script>
 (function () {
   var params = new URLSearchParams(window.location.search);
-  var source = (params.get('utm_source') || '').toLowerCase();
   var medium = (params.get('utm_medium') || '').toLowerCase();
-  if (source === 'sms' || medium === 'sms') {
-    gtag('event', 'sms_campaign_arrival', {
+  var trackedMediums = ['sms', 'push'];
+  if (trackedMediums.indexOf(medium) !== -1) {
+    gtag('event', 'campaign_arrival', {
       campaign_name: params.get('utm_campaign') || '',
       campaign_source: params.get('utm_source') || '',
       campaign_medium: params.get('utm_medium') || '',
       campaign_content: params.get('utm_content') || '',
+      campaign_ref: params.get('ref') || '',
       landing_page: window.location.pathname
     });
   }
