@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "Map, Filter and Fold in Haskell"
-date: 2014-03-25 11:56:46 +0700
-comments: true
 categories: haskell functional programming map filter fold
+comments: true
+date: '2014-03-25T11:56:46Z'
+title: Map, Filter and Fold in Haskell
 ---
 
 This example shows 3 key features of functional programming: `map` `filter` and `map` function using __haskell__.

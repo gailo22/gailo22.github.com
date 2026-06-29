@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "GIT useful commands"
-date: 2015-04-23 22:59:04 +0800
-comments: true
 categories: git command collections
+comments: true
+date: '2015-04-23T22:59:04Z'
+title: GIT useful commands
 ---
 This is a collections of `git` commands I use as a references when I was lazy to remember them all:
 

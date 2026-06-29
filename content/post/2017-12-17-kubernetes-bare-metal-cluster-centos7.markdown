@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "Kubernetes Cluster on bare metal Centos 7"
-date: 2017-12-17 17:35:04 +0800
-comments: true
 categories: kubernetes cluster bare metal centos 7
+comments: true
+date: '2017-12-17T17:35:04Z'
+title: Kubernetes Cluster on bare metal Centos 7
 ---
 When you setup your local development environemnt, you can use Minikube to manage the kubernetes cluster. But Minikube can only has one master node cluster which may not suitable for your SIT, UAT, Production environment which shared by other developers. If you use cloud providers you can use [KOPS](https://github.com/kubernetes/kops) for AWS, [GKE](https://cloud.google.com/kubernetes-engine/) for GCP or [ACS](https://azure.microsoft.com/en-us/services/container-service/) for Azure.
 

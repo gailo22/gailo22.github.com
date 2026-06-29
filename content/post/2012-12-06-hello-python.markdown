@@ -1,10 +1,9 @@
 ---
-layout: post
-title: "Hello Python"
-date: 2012-12-06 09:01
-comments: true
 author: gailo22
 categories: python closure lambda
+comments: true
+date: '2012-12-06T00:00:00Z'
+title: Hello Python
 ---
 
 This is my first program with python using gvim is a editor.

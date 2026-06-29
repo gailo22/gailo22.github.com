@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "Solr, Zookeeper and Docker configuration"
-date: 2017-12-05 10:30:04 +0800
+categories: solr zookeeper docker setup
 comments: true
-categories: solr zookeeper docker setup 
+date: '2017-12-05T10:30:04Z'
+title: Solr, Zookeeper and Docker configuration
 ---
 This is how my current project setup the environments of Solr Cloud, ZooKeeper, Consul and Docker.
 

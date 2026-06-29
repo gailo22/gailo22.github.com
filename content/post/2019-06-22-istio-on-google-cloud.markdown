@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "Istio on google cloud"
-date: 2019-06-22 14:11:04 +0800
-comments: true
 categories: kubernetes cluster istio google cloud
+comments: true
+date: '2019-06-22T14:11:04Z'
+title: Istio on google cloud
 ---
 This post I want to try setup istio on gogle cloud. Initially I have tried on my local macbook using minikube but not success because of slow and low memory. So let's try it on the real google cloud.
 

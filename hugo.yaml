@@ -1,0 +1,47 @@
+baseURL: https://www.montree.me/
+locale: en-us
+title: The Programon's Blog
+theme: PaperMod
+paginate: 5
+disablePathToLower: true
+
+disqusShortname: montreeme
+
+params:
+  author: Montree Bungnasang
+  description: A lazy programon (programmer + pokemon) living in Bangkok, Thailand.
+  ShowBreadCrumbs: true
+  ShowShareButtons: false
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowCodeCopyButtons: true
+  comments: true
+
+  homeInfoParams:
+    Title: "The Programon's Blog"
+    Content: >
+      A lazy programon who wants to write programs to help him code —
+      Montree Bungnasang, Bangkok, Thailand.
+
+  socialIcons:
+    - name: twitter
+      url: https://twitter.com/gailo22
+    - name: github
+      url: https://github.com/gailo22
+    - name: linkedin
+      url: https://www.linkedin.com/in/montree
+
+menu:
+  main:
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 10
+    - identifier: privacy
+      name: Privacy
+      url: /privacy/
+      weight: 20
+    - identifier: archives
+      name: Archive
+      url: /archives/
+      weight: 30

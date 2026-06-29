@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "Hello Scala"
-date: 2013-07-30 17:58
-comments: true
 categories: scala functional
+comments: true
+date: '2013-07-30T00:00:00Z'
+title: Hello Scala
 ---
 
 ### Hello World!

@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "Polya's Problem Solving Techniques"
-date: 2014-03-12 11:07:26 +0700
-comments: true
 categories: Techniques problem solving
+comments: true
+date: '2014-03-12T11:07:26Z'
+title: Polya's Problem Solving Techniques
 ---
 
 In 1945 George Polya published the book How To Solve It which quickly became

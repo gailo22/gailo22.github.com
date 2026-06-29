@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "Create Integration Test with Spring"
-date: 2014-03-05 11:20:55 +0700
-comments: true
 categories: java integration test spring
+comments: true
+date: '2014-03-05T11:20:55Z'
+title: Create Integration Test with Spring
 ---
 
 Assume you want to create a integration test for UserDao class which has CRUD methods e.g find, save, update, delete.

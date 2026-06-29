@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "List of Responsive Web Frameworks"
-date: 2015-03-24 21:16:25 +0800
-comments: true
 categories: responsive web html 5
+comments: true
+date: '2015-03-24T21:16:25Z'
+title: List of Responsive Web Frameworks
 ---
 
 To make your web application responsive is the essentials part of web devepment now a days. A lot of responsive frameworks have been built for that.

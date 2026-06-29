@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "Pass Function as Argument in Java 8"
-date: 2014-03-19 11:15:38 +0700
-comments: true
 categories: java 8 function passing argument first class
+comments: true
+date: '2014-03-19T11:15:38Z'
+title: Pass Function as Argument in Java 8
 ---
 
 Last time I posted about [How to pass function as argument in Java](/blog/2014/02/28/pass-function-as-argument-java/) this version using java before java 8, today java 8 is just [released](https://blogs.oracle.com/thejavatutorials/entry/jdk_8_is_released), I will update the previous code to use java. It kinds of cool now. :D

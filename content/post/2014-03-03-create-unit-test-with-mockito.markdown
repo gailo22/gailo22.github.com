@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "Create Unit Test with Mockito"
-date: 2014-03-03 15:21:30 +0700
-comments: true
 categories: java unit test mockito
+comments: true
+date: '2014-03-03T15:21:30Z'
+title: Create Unit Test with Mockito
 ---
 
 

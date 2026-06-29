@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "Java 7 Features that I have missed"
-date: 2014-07-14 17:00:29 +0700
-comments: true
 categories: java 7 features missed
+comments: true
+date: '2014-07-14T17:00:29Z'
+title: Java 7 Features that I have missed
 ---
 
 I never have a chance to use the new features of Java 7 in my day-to-day basis project, so just want to keep it as a reference here:

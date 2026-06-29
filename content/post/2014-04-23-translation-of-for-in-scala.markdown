@@ -1,9 +1,8 @@
 ---
-layout: post
-title: "Translation of For in scala"
-date: 2014-04-23 11:05:13 +0700
-comments: true
 categories: scala for translation
+comments: true
+date: '2014-04-23T11:05:13Z'
+title: Translation of For in scala
 ---
 
 > There are 2 kinds of **for** in scala:
