@@ -1,6 +1,7 @@
 baseURL: https://www.montree.me/
 title: The Programon's Blog
 enableRobotsTXT: true
+summaryLength: 30
 
 module:
   hugoVersion:
