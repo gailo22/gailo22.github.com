@@ -1,47 +1,93 @@
 baseURL: https://www.montree.me/
-locale: en-us
 title: The Programon's Blog
-theme: PaperMod
-paginate: 5
-disablePathToLower: true
+enableRobotsTXT: true
 
-disqusShortname: montreeme
+module:
+  hugoVersion:
+    extended: true
+    min: "0.146.0"
+  imports:
+    - path: github.com/imfing/hextra
 
-params:
-  author: Montree Bungnasang
-  description: A lazy programon (programmer + pokemon) living in Bangkok, Thailand.
-  ShowBreadCrumbs: true
-  ShowShareButtons: false
-  ShowReadingTime: true
-  ShowPostNavLinks: true
-  ShowCodeCopyButtons: true
-  comments: true
-
-  homeInfoParams:
-    Title: "The Programon's Blog"
-    Content: >
-      A lazy programon who wants to write programs to help him code —
-      Montree Bungnasang, Bangkok, Thailand.
-
-  socialIcons:
-    - name: twitter
-      url: https://twitter.com/gailo22
-    - name: github
-      url: https://github.com/gailo22
-    - name: linkedin
-      url: https://www.linkedin.com/in/montree
+markup:
+  highlight:
+    noClasses: false
+  goldmark:
+    renderer:
+      unsafe: true
 
 menu:
   main:
-    - identifier: about
-      name: About
-      url: /about/
-      weight: 10
-    - identifier: privacy
-      name: Privacy
-      url: /privacy/
-      weight: 20
-    - identifier: archives
-      name: Archive
-      url: /archives/
-      weight: 30
+    - name: Blog
+      pageRef: /blog
+      weight: 1
+    - name: About
+      pageRef: /about
+      weight: 2
+    - name: Archive
+      pageRef: /archives
+      weight: 3
+    - name: GitHub
+      url: https://github.com/gailo22
+      weight: 4
+      params:
+        icon: github
+    - name: Search
+      weight: 5
+      params:
+        type: search
+
+params:
+  description: A lazy programon (programmer + pokemon) living in Bangkok, Thailand.
+
+  navbar:
+    displayTitle: true
+    displayLogo: false
+    width: normal
+
+  theme:
+    default: system
+    displayToggle: true
+
+  footer:
+    enable: true
+    displayCopyright: true
+    displayPoweredBy: false
+    width: normal
+
+  dateFormat: "January 2, 2006"
+  displayUpdatedDate: false
+
+  search:
+    enable: true
+    type: flexsearch
+    flexsearch:
+      index: content
+      tokenize: forward
+
+  blog:
+    list:
+      displayTags: true
+      sortBy: date
+      sortOrder: desc
+      pagerSize: 5
+    article:
+      displayPagination: true
+
+  archives:
+    section: blog
+    dateFormat: "Jan 02"
+
+  highlight:
+    copy:
+      enable: true
+      display: hover
+
+  page:
+    width: normal
+
+  imageZoom:
+    enable: true
+
+  comments:
+    enable: false
